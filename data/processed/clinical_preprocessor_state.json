@@ -1,0 +1,195 @@
+{
+  "num_stats": {
+    "age": {
+      "median": 62.0,
+      "mean": 61.8,
+      "std": 7.156826675784939,
+      "p1": 45.57,
+      "p99": 77.43
+    },
+    "disease_duration_months": {
+      "median": 12.5,
+      "mean": 17.475,
+      "std": 21.175918818675285,
+      "p1": 0.0,
+      "p99": 95.96000000000004
+    },
+    "updrs_part_1": {
+      "median": 8.5,
+      "mean": 7.791666666666667,
+      "std": 5.974590219531087,
+      "p1": 0.0,
+      "p99": 20.0
+    },
+    "updrs_part_2": {
+      "median": 17.0,
+      "mean": 13.183333333333334,
+      "std": 10.576637750553934,
+      "p1": 0.0,
+      "p99": 30.0
+    },
+    "updrs_part_3": {
+      "median": 30.0,
+      "mean": 25.333333333333332,
+      "std": 19.222419217159533,
+      "p1": 0.18999999999999995,
+      "p99": 59.0
+    },
+    "updrs_part_4": {
+      "median": 2.0,
+      "mean": 2.8916666666666666,
+      "std": 3.0314758680179774,
+      "p1": 0.0,
+      "p99": 10.620000000000005
+    },
+    "total_updrs": {
+      "median": 64.0,
+      "mean": 49.2,
+      "std": 37.14328377259831,
+      "p1": 1.19,
+      "p99": 109.81
+    },
+    "moca_score": {
+      "median": 26.0,
+      "mean": 25.691666666666666,
+      "std": 2.4794816255928698,
+      "p1": 21.0,
+      "p99": 30.0
+    },
+    "schwab_england_adl": {
+      "median": 81.5,
+      "mean": 83.80833333333334,
+      "std": 15.009406481042655,
+      "p1": 53.38,
+      "p99": 100.0
+    },
+    "datscan_caudate_left": {
+      "median": 1.7665,
+      "mean": 2.1325250000000002,
+      "std": 0.9083315109713685,
+      "p1": 0.96838,
+      "p99": 3.7387
+    },
+    "datscan_caudate_right": {
+      "median": 1.8530000000000002,
+      "mean": 2.2533749999999997,
+      "std": 0.8930599372217904,
+      "p1": 1.01023,
+      "p99": 3.88062
+    },
+    "datscan_putamen_left": {
+      "median": 0.819,
+      "mean": 1.3449333333333333,
+      "std": 0.9408864650190386,
+      "p1": 0.25209,
+      "p99": 2.8989800000000003
+    },
+    "datscan_putamen_right": {
+      "median": 0.961,
+      "mean": 1.4345416666666666,
+      "std": 0.8853149360902175,
+      "p1": 0.3,
+      "p99": 2.8983399999999997
+    },
+    "datscan_asymmetry_index": {
+      "median": 0.0905,
+      "mean": 0.12851666666666667,
+      "std": 0.11772493102038116,
+      "p1": 0.00219,
+      "p99": 0.47986
+    },
+    "csf_alpha_synuclein_pg_ml": {
+      "median": 1468.3,
+      "mean": 1520.118333333333,
+      "std": 387.5197096604896,
+      "p1": 807.702,
+      "p99": 2207.239
+    },
+    "csf_total_tau_pg_ml": {
+      "median": 167.5,
+      "mean": 177.09083333333334,
+      "std": 46.430437705434215,
+      "p1": 108.593,
+      "p99": 296.032
+    },
+    "csf_abeta42_pg_ml": {
+      "median": 738.7,
+      "mean": 744.6149999999999,
+      "std": 142.4024853727495,
+      "p1": 454.852,
+      "p99": 992.672
+    }
+  },
+  "cat_mappings": {
+    "sex": {
+      "F": 0,
+      "M": 1,
+      "<missing>": 2
+    },
+    "family_history_pd": {
+      "No": 0,
+      "Yes": 1,
+      "<missing>": 2
+    },
+    "dominant_side": {
+      "Left": 0,
+      "Right": 1,
+      "Symmetric": 2,
+      "<missing>": 3
+    },
+    "hoehn_yahr_stage": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "<missing>": 5
+    },
+    "genetic_variant": {
+      "GBA": 0,
+      "LRRK2": 1,
+      "SNCA": 2,
+      "<missing>": 3
+    }
+  },
+  "feature_names_out": [
+    "age",
+    "disease_duration_months",
+    "updrs_part_1",
+    "updrs_part_2",
+    "updrs_part_3",
+    "updrs_part_4",
+    "total_updrs",
+    "moca_score",
+    "schwab_england_adl",
+    "datscan_caudate_left",
+    "datscan_caudate_right",
+    "datscan_putamen_left",
+    "datscan_putamen_right",
+    "datscan_asymmetry_index",
+    "csf_alpha_synuclein_pg_ml",
+    "csf_total_tau_pg_ml",
+    "csf_abeta42_pg_ml",
+    "sex_F",
+    "sex_M",
+    "sex_missing",
+    "family_history_pd_No",
+    "family_history_pd_Yes",
+    "family_history_pd_missing",
+    "dominant_side_Left",
+    "dominant_side_Right",
+    "dominant_side_Symmetric",
+    "dominant_side_missing",
+    "hoehn_yahr_stage_0",
+    "hoehn_yahr_stage_1",
+    "hoehn_yahr_stage_2",
+    "hoehn_yahr_stage_3",
+    "hoehn_yahr_stage_4",
+    "hoehn_yahr_stage_missing",
+    "genetic_variant_GBA",
+    "genetic_variant_LRRK2",
+    "genetic_variant_SNCA",
+    "genetic_variant_missing"
+  ],
+  "is_fitted": true
+}

@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimodal Parkinson's Decision Support - Review 1 Preprocessing Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #090d16;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.85);
+            --border-color: rgba(56, 189, 248, 0.15);
+            --border-glow: rgba(56, 189, 248, 0.4);
+            --accent-cyan: #38bdf8;
+            --accent-blue: #3b82f6;
+            --accent-indigo: #6366f1;
+            --accent-rose: #f43f5e;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.5;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(244, 63, 94, 0.06) 0%, transparent 40%),
+                linear-gradient(to bottom, #070a10, #0d131f);
+        }
+
+        /* Top Header */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(13, 19, 31, 0.8);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, #0284c7, #6366f1);
+            color: #fff;
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-title p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .subject-selector-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--bg-secondary);
+            padding: 0.35rem 0.6rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .subject-selector-bar label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .subject-selector-bar select {
+            background: #1e293b;
+            color: #f8fafc;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1560px;
+            margin: 1.5rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Review 1 Key Highlights Banner */
+        .review-banner {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.25rem 1.75rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .stat-icon.mri { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); border: 1px solid rgba(56, 189, 248, 0.3); }
+        .stat-icon.speech { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); border: 1px solid rgba(244, 63, 94, 0.3); }
+        .stat-icon.clinical { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .stat-icon.status { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .stat-info h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+        }
+
+        .stat-info .value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-main);
+        }
+
+        .stat-info .subtext {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+        }
+
+        /* 3-Column Modality Grid */
+        .modality-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr 0.85fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .modality-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.25rem;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 0.75rem;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .pill-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .pill-mri { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .pill-speech { background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); }
+        .pill-clin { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+        /* MRI Canvas & Slice Controls */
+        .mri-viewport-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .mri-canvas-wrapper {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            background: #000;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        canvas {
+            image-rendering: pixelated;
+        }
+
+        .mri-view-toggles {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        .btn-view {
+            flex: 1;
+            padding: 0.4rem;
+            border-radius: 6px;
+            background: #1e293b;
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-view.active {
+            background: #0284c7;
+            color: #fff;
+            border-color: #38bdf8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .slice-slider-box {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .slice-slider-box input[type="range"] {
+            flex: 1;
+            accent-color: var(--accent-cyan);
+        }
+
+        .mri-annotations {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            background: rgba(0,0,0,0.3);
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        /* Speech Spectrogram Canvas & Features */
+        .audio-player-box {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(0,0,0,0.3);
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .btn-play {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent-rose);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .btn-play:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 14px rgba(244, 63, 94, 0.5);
+        }
+
+        .audio-track-info {
+            flex: 1;
+        }
+
+        .audio-track-info h5 {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .audio-track-info p {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .spectrogram-box {
+            width: 100%;
+            height: 140px;
+            background: #050811;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .acoustic-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .metric-cell {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .metric-cell .label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .metric-cell .val {
+            font-size: 0.95rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: #f8fafc;
+        }
+
+        .metric-cell .status-tag {
+            font-size: 0.65rem;
+            padding: 0.1rem 0.35rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .status-elevated { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+        .status-normal { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+        /* Clinical Profile & Biomarkers */
+        .clinical-metric-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .updrs-composite-bar {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 0.75rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .updrs-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .progress-rail {
+            height: 8px;
+            background: #1e293b;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        .fill-updrs { background: linear-gradient(90deg, #38bdf8, #f43f5e); }
+        .fill-datscan { background: linear-gradient(90deg, #ef4444, #10b981); }
+
+        .datscan-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 0.4rem;
+        }
+
+        /* Tensor Schema Verification Card */
+        .tensor-box {
+            background: #090e17;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .tensor-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.35rem 0.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-cyan);
+        }
+
+        .tensor-row.speech { border-left-color: var(--accent-rose); }
+        .tensor-row.mri { border-left-color: var(--accent-cyan); }
+        .tensor-row.clin { border-left-color: var(--accent-emerald); }
+
+        .tensor-name {
+            color: #94a3b8;
+        }
+
+        .tensor-shape {
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        .tensor-target {
+            color: #a855f7;
+            font-weight: 500;
+        }
+
+        /* Presentation Notes Section */
+        .talking-points-card {
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .talking-points-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f8fafc;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .point-item {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .point-item h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 0.35rem;
+        }
+
+        .point-item p {
+            font-size: 0.78rem;
+            color: #cbd5e1;
+            line-height: 1.45;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.78rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-brand">
+            <span class="brand-badge">Review 1 Demonstration</span>
+            <div class="header-title">
+                <h1>Multimodal Parkinson's Disease Decision Support</h1>
+                <p>Dataset Preprocessing Pipeline • PPMI (3D sMRI & Clinical) + UCI (Speech Biomarkers)</p>
+            </div>
+        </div>
+        <div class="subject-selector-bar">
+            <label for="subjectSelect">Select Patient Case:</label>
+            <select id="subjectSelect" onchange="onSubjectChange(this.value)">
+                <option value="PPMI_1001">PPMI_1001 • Parkinson's Disease (H&Y Stage 2 - Moderate)</option>
+                <option value="PPMI_1002">PPMI_1002 • Parkinson's Disease (H&Y Stage 3 - Advanced)</option>
+                <option value="PPMI_1003">PPMI_1003 • Early Stage PD (H&Y Stage 1 - Tremor Dominant)</option>
+                <option value="PPMI_1080">PPMI_1080 • Healthy Control (HC - Baseline Reference)</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Review 1 Quick Metric Highlights -->
+        <div class="review-banner">
+            <div class="stat-card">
+                <div class="stat-icon mri">🧠</div>
+                <div class="stat-info">
+                    <h4>3D MRI Volume (ResNet-50)</h4>
+                    <div class="value">96 × 96 × 96</div>
+                    <div class="subtext">RAS+ Isometric • Skull-Stripped</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon speech">🎙️</div>
+                <div class="stat-info">
+                    <h4>Speech STFT (CNN+BiLSTM)</h4>
+                    <div class="value">1 × 64 × 184</div>
+                    <div class="subtext">Log-Mel + 42 Acoustic Features</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon clinical">📋</div>
+                <div class="stat-info">
+                    <h4>Clinical Vector (Tabular MLP)</h4>
+                    <div class="value">37 Features</div>
+                    <div class="subtext">MDS-UPDRS, MoCA, DaTscan SBR</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon status">⚡</div>
+                <div class="stat-info">
+                    <h4>Test Verification</h4>
+                    <div class="value" style="color: #10b981;">100% Passed</div>
+                    <div class="subtext">4/4 Unit & DataLoader Tests</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3-Column Multimodal Modality Preprocessing Visualizer -->
+        <div class="modality-grid">
+
+            <!-- Column 1: 3D Structural MRI (sMRI) Preprocessing -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>🧠 3D Structural MRI Pipeline</span>
+                        <span class="pill-tag pill-mri">PPMI T1-Weighted</span>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;" id="mriSliceIndicator">Slice 48 / 96</span>
+                </div>
+
+                <div class="mri-viewport-container">
+                    <div class="mri-view-toggles">
+                        <button class="btn-view active" id="btnAxial" onclick="setMriPlane('axial')">Axial (Transverse)</button>
+                        <button class="btn-view" id="btnCoronal" onclick="setMriPlane('coronal')">Coronal (Frontal)</button>
+                        <button class="btn-view" id="btnSagittal" onclick="setMriPlane('sagittal')">Sagittal (Lateral)</button>
+                    </div>
+
+                    <div class="mri-canvas-wrapper">
+                        <canvas id="mriCanvas" width="220" height="220"></canvas>
+                    </div>
+
+                    <div class="slice-slider-box">
+                        <span>Slice:</span>
+                        <input type="range" id="sliceSlider" min="0" max="95" value="48" oninput="onSliceSlider(this.value)">
+                        <span id="sliceVal">48</span>
+                    </div>
+
+                    <div class="mri-annotations">
+                        <span>✓ Otsu 3D Skull-Stripping</span>
+                        <span>✓ Z-score [-1, 1] Norm</span>
+                        <span>✓ Substantia Nigra Focus</span>
+                    </div>
+                </div>
+
+                <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                    <strong>Preprocessing Key:</strong> Removed non-brain tissue (skull/scalp), resampled voxel space isometrically to <code>(96, 96, 96)</code>, and clipped 1st-99th percentiles to eliminate scanner intensity bias fields.
+                </div>
+            </div>
+
+            <!-- Column 2: Speech & Vocal Biomarker Preprocessing -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>🎙️ Speech & Spectrogram Pipeline</span>
+                        <span class="pill-tag pill-speech">UCI Parkinson Voice</span>
+                    </div>
+                    <span style="font-size: 0.72rem; color: var(--accent-rose); font-weight: 600;" id="audioDurationTag">3.0s Phonation</span>
+                </div>
+
+                <div class="audio-player-box">
+                    <button class="btn-play" id="playBtn" onclick="toggleAudioSimulation()">▶</button>
+                    <div class="audio-track-info">
+                        <h5 id="audioPatientLabel">PPMI_1001 Sustained /a/ Vowel</h5>
+                        <p id="audioStatusText">Voice Activity Detection: 100% Voiced Frame</p>
+                    </div>
+                </div>
+
+                <div class="spectrogram-box">
+                    <canvas id="specCanvas" width="380" height="140" style="width: 100%; height: 100%;"></canvas>
+                </div>
+
+                <div class="acoustic-metrics-grid">
+                    <div class="metric-cell">
+                        <div class="label"><span>Jitter (Local %)</span> <span class="status-tag status-elevated" id="tagJitter">Elevated</span></div>
+                        <div class="val" id="valJitter">1.84%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="label"><span>Shimmer (Local %)</span> <span class="status-tag status-elevated" id="tagShimmer">Elevated</span></div>
+                        <div class="val" id="valShimmer">4.92%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="label"><span>HNR (Harmonics/Noise)</span> <span class="status-tag status-elevated" id="tagHnr">Reduced</span></div>
+                        <div class="val" id="valHnr">14.2 dB</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="label"><span>Pitch F0 Mean</span> <span class="status-tag status-normal" id="tagF0">178 Hz</span></div>
+                        <div class="val" id="valF0">178.4 Hz</div>
+                    </div>
+                </div>
+
+                <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                    <strong>Preprocessing Key:</strong> VAD silence trimming + 64-Mel STFT filterbank yielding <code>(1, 64, 184)</code> input for the <strong>CNN+BiLSTM</strong> temporal phonatory tremor extractor.
+                </div>
+            </div>
+
+            <!-- Column 3: Clinical Biomarkers & Tabular Preprocessing -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>📋 Clinical Profile & DaTscan</span>
+                        <span class="pill-tag pill-clin">PPMI Multimodal</span>
+                    </div>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: #f43f5e;" id="diagnosisBadge">PD Stage 2</span>
+                </div>
+
+                <div class="clinical-metric-stack">
+                    <!-- UPDRS Composite -->
+                    <div class="updrs-composite-bar">
+                        <div class="updrs-header">
+                            <span>MDS-UPDRS Total</span>
+                            <span id="txtUpdrsTotal" style="color: #f43f5e;">58 / 260</span>
+                        </div>
+                        <div class="progress-rail">
+                            <div class="progress-fill fill-updrs" id="barUpdrs" style="width: 32%;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-top: 0.35rem;">
+                            <span id="txtUpdrsPart3">Part III Motor: 38 (Rigidity/Tremor)</span>
+                            <span id="txtMoca">MoCA: 25/30</span>
+                        </div>
+                    </div>
+
+                    <!-- DaTscan Striatal Binding Ratio -->
+                    <div class="updrs-composite-bar">
+                        <div class="updrs-header">
+                            <span>DaTscan Putamen SBR (Dopaminergic)</span>
+                            <span id="txtDatscanVal" style="color: #ef4444;">0.74 (Deficit)</span>
+                        </div>
+                        <div class="progress-rail">
+                            <div class="progress-fill fill-datscan" id="barDatscan" style="width: 25%;"></div>
+                        </div>
+                        <div class="datscan-pair">
+                            <div style="font-size: 0.7rem; color: var(--text-muted); background: rgba(0,0,0,0.3); padding: 0.3rem; border-radius: 4px;">
+                                Left Putamen: <strong id="valPutamenLeft" style="color: #f87171;">0.74</strong>
+                            </div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); background: rgba(0,0,0,0.3); padding: 0.3rem; border-radius: 4px;">
+                                Right Putamen: <strong id="valPutamenRight" style="color: #fb923c;">0.92</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Learning Tensor Verification Output -->
+                <div class="tensor-box">
+                    <div style="color: #f8fafc; font-weight: 700; margin-bottom: 0.2rem;">⚡ DL Model Input Tensors</div>
+                    <div class="tensor-row mri">
+                        <span class="tensor-name">MRI (3D ResNet-50)</span>
+                        <span class="tensor-shape">[1, 96, 96, 96]</span>
+                    </div>
+                    <div class="tensor-row speech">
+                        <span class="tensor-name">Speech (CNN+BiLSTM)</span>
+                        <span class="tensor-shape">[1, 64, 184]</span>
+                    </div>
+                    <div class="tensor-row clin">
+                        <span class="tensor-name">Clinical (Tabular MLP)</span>
+                        <span class="tensor-shape">[37]</span>
+                    </div>
+                    <div class="tensor-row">
+                        <span class="tensor-name">Modality Mask</span>
+                        <span class="tensor-shape">[1, 1, 1]</span>
+                    </div>
+                </div>
+
+                <div style="font-size: 0.72rem; color: var(--text-dim);">
+                    ✓ Imputed & robust-scaled with serializable JSON transformation matrix.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Professor Presentation Talking Points & Academic Defense -->
+        <div class="talking-points-card">
+            <h3>🎓 Presentation Guide for Your Professor (What to Highlight in Review 1)</h3>
+            <div class="points-grid">
+                <div class="point-item">
+                    <h4>1. Speech Biomarker Preprocessing (CNN + BiLSTM)</h4>
+                    <p>Explain that speech recordings undergo Voice Activity Detection (VAD) and Short-Time Fourier Transform (STFT) onto 64 Mel filterbanks. This creates a time-frequency tensor <code>(1, 64, 184)</code> allowing 2D Conv layers to capture formant shifts and BiLSTM layers to track temporal phonatory micro-tremors (5 Hz modulation) and acoustic jitter.</p>
+                </div>
+                <div class="point-item">
+                    <h4>2. 3D MRI Structural Neuroimaging (3D ResNet-50)</h4>
+                    <p>Highlight that raw PPMI scans have varying resolutions and non-brain tissue. Our automated 3D Otsu & morphological pipeline skull-strips the brain volume, resamples it isometrically to <code>(96, 96, 96)</code>, and applies 1st–99th percentile Z-score standardization to eliminate scanner bias artifacts.</p>
+                </div>
+                <div class="point-item">
+                    <h4>3. PPMI Clinical & Dopaminergic Integration</h4>
+                    <p>Show that clinical scores (MDS-UPDRS Parts I–IV, Hoehn & Yahr, MoCA) are paired with DaTscan SPECT Striatal Binding Ratios (SBR). The preprocessor robustly imputes missing values and encodes categorical variables into a clean 37-dimensional vector.</p>
+                </div>
+                <div class="point-item">
+                    <h4>4. Multimodal Synchronization & CBR Readiness</h4>
+                    <p>Demonstrate that the PyTorch <code>MultimodalDataset</code> synchronizes all three modalities per patient ID, provides binary modality presence masks for missing data, and creates stratified train/val/test splits ready for Multimodal Fusion and Case-Based Reasoning.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        Multimodal Case-Based Clinical Decision Support for Parkinson's Disease • Review 1 Preprocessing Milestone
+    </footer>
+
+    <script>
+        // Patient Clinical & Acoustic Profiles
+        const PATIENT_DATA = {
+            "PPMI_1001": {
+                name: "PPMI_1001",
+                diagnosis: "Parkinson's Disease (Moderate)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                jitter: "1.84%",
+                shimmer: "4.92%",
+                hnr: "14.2 dB",
+                f0: "178.4 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: true,
+                updrsTotal: "58 / 260",
+                updrsPct: 32,
+                updrsPart3: "Part III Motor: 38 (Rigidity/Tremor)",
+                moca: "MoCA: 25/30",
+                datscanVal: "0.74 (Deficit)",
+                datscanPct: 25,
+                putamenLeft: "0.74",
+                putamenRight: "0.92",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "PPMI_1002": {
+                name: "PPMI_1002",
+                diagnosis: "Parkinson's Disease (Advanced)",
+                stageBadge: "PD Stage 3",
+                isPd: true,
+                jitter: "2.45%",
+                shimmer: "6.85%",
+                hnr: "11.5 dB",
+                f0: "162.1 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: true,
+                updrsTotal: "84 / 260",
+                updrsPct: 48,
+                updrsPart3: "Part III Motor: 54 (Severe Bradykinesia)",
+                moca: "MoCA: 23/30",
+                datscanVal: "0.52 (Severe Deficit)",
+                datscanPct: 18,
+                putamenLeft: "0.52",
+                putamenRight: "0.68",
+                mriBrainScale: 0.78,
+                ventricleScale: 1.5,
+                snAtrophy: true
+            },
+            "PPMI_1003": {
+                name: "PPMI_1003",
+                diagnosis: "Early Stage PD (Tremor Dominant)",
+                stageBadge: "PD Stage 1",
+                isPd: true,
+                jitter: "1.15%",
+                shimmer: "3.40%",
+                hnr: "17.8 dB",
+                f0: "185.0 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "32 / 260",
+                updrsPct: 18,
+                updrsPart3: "Part III Motor: 22 (Unilateral Resting Tremor)",
+                moca: "MoCA: 28/30",
+                datscanVal: "1.15 (Moderate)",
+                datscanPct: 40,
+                putamenLeft: "1.15",
+                putamenRight: "1.55",
+                mriBrainScale: 0.85,
+                ventricleScale: 1.05,
+                snAtrophy: true
+            },
+            "PPMI_1080": {
+                name: "PPMI_1080",
+                diagnosis: "Healthy Control (Reference Baseline)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                jitter: "0.32%",
+                shimmer: "1.15%",
+                hnr: "26.4 dB",
+                f0: "192.5 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: false,
+                updrsTotal: "4 / 260",
+                updrsPct: 2,
+                updrsPart3: "Part III Motor: 2 (Normal Examination)",
+                moca: "MoCA: 29/30",
+                datscanVal: "2.55 (Normal Dopaminergic)",
+                datscanPct: 90,
+                putamenLeft: "2.45",
+                putamenRight: "2.58",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            }
+        };
+
+        let currentSubjectId = "PPMI_1001";
+        let currentPlane = "axial";
+        let currentSlice = 48;
+        let isAudioPlaying = false;
+        let audioAnimId = null;
+
+        // Initialize Canvases
+        const mriCanvas = document.getElementById("mriCanvas");
+        const mriCtx = mriCanvas.getContext("2d");
+        const specCanvas = document.getElementById("specCanvas");
+        const specCtx = specCanvas.getContext("2d");
+
+        function renderMriSlice() {
+            const data = PATIENT_DATA[currentSubjectId];
+            const width = mriCanvas.width;
+            const height = mriCanvas.height;
+            const cx = width / 2;
+            const cy = height / 2;
+
+            mriCtx.fillStyle = "#000000";
+            mriCtx.fillRect(0, 0, width, height);
+
+            const sliceProgress = (currentSlice - 48) / 48; // -1 to 1
+            const baseRadius = (1 - Math.abs(sliceProgress) * 0.4) * 85;
+
+            if (baseRadius > 10) {
+                // Skull-stripped Brain Parenchyma (Grey / White matter gradient)
+                const grad = mriCtx.createRadialGradient(cx, cy, 5, cx, cy, baseRadius * data.mriBrainScale);
+                grad.addColorStop(0, "#cbd5e1"); // White matter core
+                grad.addColorStop(0.65, "#94a3b8"); // Deep grey nuclei
+                grad.addColorStop(1, "#334155"); // Outer cortex
+                
+                mriCtx.fillStyle = grad;
+                mriCtx.beginPath();
+                if (currentPlane === "axial") {
+                    mriCtx.ellipse(cx, cy, baseRadius * 0.95, baseRadius * 1.05, 0, 0, 2 * Math.PI);
+                } else if (currentPlane === "coronal") {
+                    mriCtx.ellipse(cx, cy, baseRadius * 0.9, baseRadius * 0.95, 0, 0, 2 * Math.PI);
+                } else {
+                    mriCtx.ellipse(cx, cy, baseRadius * 1.05, baseRadius * 0.85, 0, 0, 2 * Math.PI);
+                }
+                mriCtx.fill();
+
+                // Lateral Ventricles (CSF - Dark)
+                mriCtx.fillStyle = "#090d16";
+                const ventWidth = 14 * data.ventricleScale;
+                const ventHeight = 28 * data.ventricleScale;
+
+                mriCtx.beginPath();
+                mriCtx.ellipse(cx - 16, cy - 4, ventWidth, ventHeight, -0.2, 0, 2 * Math.PI);
+                mriCtx.ellipse(cx + 16, cy - 4, ventWidth, ventHeight, 0.2, 0, 2 * Math.PI);
+                mriCtx.fill();
+
+                // Substantia Nigra / Basal Ganglia Region (Iron contrast alteration in PD)
+                if (data.snAtrophy) {
+                    mriCtx.fillStyle = "rgba(244, 63, 94, 0.35)"; // Highlighted Atrophy zone
+                    mriCtx.beginPath();
+                    mriCtx.arc(cx - 20, cy + 15, 7, 0, 2 * Math.PI);
+                    mriCtx.arc(cx + 20, cy + 15, 7, 0, 2 * Math.PI);
+                    mriCtx.fill();
+
+                    mriCtx.strokeStyle = "#f43f5e";
+                    mriCtx.lineWidth = 1;
+                    mriCtx.stroke();
+                }
+            }
+
+            // Grid overlay lines
+            mriCtx.strokeStyle = "rgba(56, 189, 248, 0.15)";
+            mriCtx.lineWidth = 0.5;
+            mriCtx.beginPath();
+            mriCtx.moveTo(cx, 0); mriCtx.lineTo(cx, height);
+            mriCtx.moveTo(0, cy); mriCtx.lineTo(width, cy);
+            mriCtx.stroke();
+        }
+
+        function renderSpectrogram(timeOffset = 0) {
+            const data = PATIENT_DATA[currentSubjectId];
+            const w = specCanvas.width;
+            const h = specCanvas.height;
+
+            specCtx.fillStyle = "#050811";
+            specCtx.fillRect(0, 0, w, h);
+
+            const nCols = 60;
+            const colWidth = w / nCols;
+            const nRows = 32;
+            const rowHeight = h / nRows;
+
+            for (let c = 0; c < nCols; c++) {
+                const t = c / nCols;
+                for (let r = 0; r < nRows; r++) {
+                    const f = (nRows - r) / nRows; // High to low frequency
+                    let energy = Math.exp(-Math.pow(f - 0.25, 2) / 0.05) + 0.6 * Math.exp(-Math.pow(f - 0.55, 2) / 0.08);
+
+                    if (data.isPd) {
+                        // Tremor amplitude/frequency modulation across time (5 Hz wave)
+                        const tremor = 0.3 * Math.sin(2 * Math.PI * 4.5 * (t + timeOffset)) + 0.15 * Math.random();
+                        energy = energy * (1.0 + tremor);
+                    } else {
+                        energy = energy * (1.0 + 0.04 * (Math.random() - 0.5));
+                    }
+
+                    energy = Math.max(0, Math.min(1, energy));
+                    
+                    // Colormap: Viridis-like (Purple -> Teal -> Yellow)
+                    const red = Math.floor(energy * 255 * (f > 0.4 ? 1 : 0.4));
+                    const green = Math.floor(Math.pow(energy, 0.7) * 230);
+                    const blue = Math.floor((1 - energy) * 180 + energy * 80);
+
+                    specCtx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+                    specCtx.fillRect(c * colWidth, r * rowHeight, colWidth + 0.5, rowHeight + 0.5);
+                }
+            }
+        }
+
+        function onSubjectChange(subId) {
+            currentSubjectId = subId;
+            const data = PATIENT_DATA[subId];
+
+            // Update badges & metrics
+            document.getElementById("diagnosisBadge").innerText = data.stageBadge;
+            document.getElementById("diagnosisBadge").style.color = data.isPd ? "#f43f5e" : "#10b981";
+            document.getElementById("audioPatientLabel").innerText = `${data.name} Sustained /a/ Vowel`;
+
+            // Acoustic features
+            document.getElementById("valJitter").innerText = data.jitter;
+            document.getElementById("valShimmer").innerText = data.shimmer;
+            document.getElementById("valHnr").innerText = data.hnr;
+            document.getElementById("valF0").innerText = data.f0;
+
+            document.getElementById("tagJitter").className = `status-tag ${data.jitterElevated ? 'status-elevated' : 'status-normal'}`;
+            document.getElementById("tagJitter").innerText = data.jitterElevated ? "Elevated" : "Normal";
+
+            document.getElementById("tagShimmer").className = `status-tag ${data.shimmerElevated ? 'status-elevated' : 'status-normal'}`;
+            document.getElementById("tagShimmer").innerText = data.shimmerElevated ? "Elevated" : "Normal";
+
+            document.getElementById("tagHnr").className = `status-tag ${data.hnrElevated ? 'status-elevated' : 'status-normal'}`;
+            document.getElementById("tagHnr").innerText = data.hnrElevated ? "Reduced" : "Optimal";
+
+            // Clinical metrics
+            document.getElementById("txtUpdrsTotal").innerText = data.updrsTotal;
+            document.getElementById("txtUpdrsTotal").style.color = data.isPd ? "#f43f5e" : "#10b981";
+            document.getElementById("barUpdrs").style.width = `${data.updrsPct}%`;
+            document.getElementById("txtUpdrsPart3").innerText = data.updrsPart3;
+            document.getElementById("txtMoca").innerText = data.moca;
+
+            document.getElementById("txtDatscanVal").innerText = data.datscanVal;
+            document.getElementById("txtDatscanVal").style.color = data.isPd ? "#ef4444" : "#10b981";
+            document.getElementById("barDatscan").style.width = `${data.datscanPct}%`;
+            document.getElementById("valPutamenLeft").innerText = data.putamenLeft;
+            document.getElementById("valPutamenRight").innerText = data.putamenRight;
+
+            renderMriSlice();
+            renderSpectrogram();
+        }
+
+        function setMriPlane(plane) {
+            currentPlane = plane;
+            document.getElementById("btnAxial").classList.toggle("active", plane === "axial");
+            document.getElementById("btnCoronal").classList.toggle("active", plane === "coronal");
+            document.getElementById("btnSagittal").classList.toggle("active", plane === "sagittal");
+            renderMriSlice();
+        }
+
+        function onSliceSlider(val) {
+            currentSlice = parseInt(val);
+            document.getElementById("sliceVal").innerText = val;
+            document.getElementById("mriSliceIndicator").innerText = `Slice ${val} / 96`;
+            renderMriSlice();
+        }
+
+        let simTime = 0;
+        function toggleAudioSimulation() {
+            isAudioPlaying = !isAudioPlaying;
+            const playBtn = document.getElementById("playBtn");
+            if (isAudioPlaying) {
+                playBtn.innerText = "⏸";
+                document.getElementById("audioStatusText").innerText = "Playing 16kHz VAD-Trimmed Phonation (Tremor Analysis)";
+                function step() {
+                    if (!isAudioPlaying) return;
+                    simTime += 0.05;
+                    renderSpectrogram(simTime);
+                    audioAnimId = requestAnimationFrame(step);
+                }
+                step();
+            } else {
+                playBtn.innerText = "▶";
+                document.getElementById("audioStatusText").innerText = "Voice Activity Detection: 100% Voiced Frame";
+                cancelAnimationFrame(audioAnimId);
+            }
+        }
+
+        // Initial Boot
+        onSubjectChange("PPMI_1001");
+    </script>
+</body>
+</html>

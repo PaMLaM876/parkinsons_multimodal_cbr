@@ -1,0 +1,67 @@
+{
+  "n_total": 20,
+  "n_train": 12,
+  "n_val": 4,
+  "n_test": 4,
+  "shapes": {
+    "speech_spec": [
+      1,
+      64,
+      184
+    ],
+    "acoustic_feats": [
+      42
+    ],
+    "mri_tensor": [
+      1,
+      96,
+      96,
+      96
+    ],
+    "clinical_vec": [
+      35
+    ]
+  },
+  "clinical_features": [
+    "age",
+    "disease_duration_months",
+    "updrs_part_1",
+    "updrs_part_2",
+    "updrs_part_3",
+    "updrs_part_4",
+    "total_updrs",
+    "moca_score",
+    "schwab_england_adl",
+    "datscan_caudate_left",
+    "datscan_caudate_right",
+    "datscan_putamen_left",
+    "datscan_putamen_right",
+    "datscan_asymmetry_index",
+    "csf_alpha_synuclein_pg_ml",
+    "csf_total_tau_pg_ml",
+    "csf_abeta42_pg_ml",
+    "sex_F",
+    "sex_M",
+    "sex_missing",
+    "family_history_pd_No",
+    "family_history_pd_missing",
+    "dominant_side_Left",
+    "dominant_side_Right",
+    "dominant_side_Symmetric",
+    "dominant_side_missing",
+    "hoehn_yahr_stage_0",
+    "hoehn_yahr_stage_1",
+    "hoehn_yahr_stage_2",
+    "hoehn_yahr_stage_3",
+    "hoehn_yahr_stage_4",
+    "hoehn_yahr_stage_missing",
+    "genetic_variant_LRRK2",
+    "genetic_variant_SNCA",
+    "genetic_variant_missing"
+  ],
+  "modalities": [
+    "speech_cnn_bilstm",
+    "mri_3d_resnet50",
+    "clinical_tabular"
+  ]
+}

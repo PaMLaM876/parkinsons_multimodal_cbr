@@ -1,0 +1,32 @@
+{
+  "dataset_name": "UCI Parkinson's Speech Dataset",
+  "uci_id": 174,
+  "total_samples": 195,
+  "n_pd": 147,
+  "n_hc": 48,
+  "pd_ratio": 0.754,
+  "n_features": 19,
+  "features": [
+    "f0_mean",
+    "f0_max",
+    "f0_min",
+    "jitter_local",
+    "jitter_rap",
+    "jitter_ddp",
+    "shimmer_local",
+    "shimmer_apq3",
+    "shimmer_apq5",
+    "shimmer_apq11",
+    "shimmer_dda",
+    "nhr",
+    "hnr",
+    "rpde",
+    "dfa",
+    "spread1",
+    "spread2",
+    "d2",
+    "ppe"
+  ],
+  "source_url": "https://archive.ics.uci.edu/dataset/174/parkinsons",
+  "citation": "Little, M.A., McSharry, P.E., Roberts, S.J., Costello, D.A.E., Moroz, I.M. (2007). Exploiting Nonlinear Recurrence and Fractal Scaling Properties for Voice Disorder Detection. BioMedical Engineering OnLine, 6:23."
+}

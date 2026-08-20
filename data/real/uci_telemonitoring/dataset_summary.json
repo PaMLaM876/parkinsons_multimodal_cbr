@@ -1,0 +1,31 @@
+{
+  "dataset_name": "UCI Parkinson's Telemonitoring Dataset",
+  "uci_id": 189,
+  "total_samples": 5875,
+  "n_unique_subjects": 42,
+  "n_features": 16,
+  "features": [
+    "jitter_local",
+    "jitter_abs",
+    "jitter_rap",
+    "jitter_ppq5",
+    "jitter_ddp",
+    "shimmer_local",
+    "shimmer_db",
+    "shimmer_apq3",
+    "shimmer_apq5",
+    "shimmer_apq11",
+    "shimmer_dda",
+    "nhr",
+    "hnr",
+    "rpde",
+    "dfa",
+    "ppe"
+  ],
+  "targets": [
+    "motor_UPDRS (updrs_part_3)",
+    "total_UPDRS (total_updrs)"
+  ],
+  "source_url": "https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring",
+  "citation": "Tsanas, A., Little, M.A., McSharry, P.E., Ramig, L.O. (2010). Accurate Telemonitoring of Parkinson's Disease Progression by Noninvasive Speech Tests. IEEE Trans. Biomedical Engineering, 57(4):884-893."
+}
