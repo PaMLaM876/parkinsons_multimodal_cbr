@@ -1,0 +1,17 @@
+{
+    "uci_speech": {
+        "accuracy": 0.949,
+        "f1_score": 0.97,
+        "dataset_size": 195
+    },
+    "uci_telemonitoring": {
+        "mse": 5.697,
+        "r2_score": 0.911,
+        "dataset_size": 5875
+    },
+    "ppmi_clinical": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "dataset_size": 935
+    }
+}

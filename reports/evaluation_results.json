@@ -1,0 +1,47 @@
+{
+  "test_accuracy": 1.0,
+  "test_f1": 1.0,
+  "test_auc_roc": 1.0,
+  "ablation": {
+    "All Modalities": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "auc_roc": 1.0
+    },
+    "Speech Only": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "auc_roc": 1.0
+    },
+    "MRI Only": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "auc_roc": 1.0
+    },
+    "Clinical Only": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "auc_roc": 1.0
+    },
+    "Speech + Clinical": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "auc_roc": 1.0
+    },
+    "MRI + Clinical": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "auc_roc": 1.0
+    },
+    "Speech + MRI": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "auc_roc": 1.0
+    }
+  },
+  "gate_means": {
+    "speech": 0.8798815011978149,
+    "mri": 0.05292042717337608,
+    "clinical": 0.06719806790351868
+  }
+}

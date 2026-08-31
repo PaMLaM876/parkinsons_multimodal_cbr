@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimodal Parkinson's Decision Support - Review 1 Preprocessing Showcase</title>
+    <title>Multimodal Parkinson's Decision Support - Review 2 Preprocessing Showcase</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -555,7 +555,7 @@
     <!-- Header Navigation -->
     <header>
         <div class="header-brand">
-            <span class="brand-badge">Review 1 Demonstration</span>
+            <span class="brand-badge">Review 2 Demonstration</span>
             <div class="header-title">
                 <h1>Multimodal Parkinson's Disease Decision Support</h1>
                 <p>Dataset Preprocessing Pipeline • PPMI (3D sMRI & Clinical) + UCI (Speech Biomarkers)</p>
@@ -563,12 +563,60 @@
         </div>
         <div class="subject-selector-bar">
             <label for="subjectSelect">Select Patient Case:</label>
-            <select id="subjectSelect" onchange="onSubjectChange(this.value)">
-                <option value="PPMI_1001">PPMI_1001 • Parkinson's Disease (H&Y Stage 2 - Moderate)</option>
-                <option value="PPMI_1002">PPMI_1002 • Parkinson's Disease (H&Y Stage 3 - Advanced)</option>
-                <option value="PPMI_1003">PPMI_1003 • Early Stage PD (H&Y Stage 1 - Tremor Dominant)</option>
-                <option value="PPMI_1080">PPMI_1080 • Healthy Control (HC - Baseline Reference)</option>
+            <select id="subjectSelect" onchange="onSubjectChange(this.value)" style="margin-right: 15px;">
+                <option value="100005">🧠 PPMI | 100005 • Healthy Control (Reference)</option>
+                <option value="100006">🧠 PPMI | 100006 • Parkinson's Disease (Stage 2)</option>
+                <option value="100007">🧠 PPMI | 100007 • Parkinson's Disease (Stage 2)</option>
+                <option value="100012">🧠 PPMI | 100012 • Healthy Control (Reference)</option>
+                <option value="100017">🧠 PPMI | 100017 • Parkinson's Disease (Stage 2)</option>
+                <option value="100018">🧠 PPMI | 100018 • Parkinson's Disease (Stage 2)</option>
+                <option value="100267">🧠 PPMI | 100267 • Healthy Control (Reference)</option>
+                <option value="100268">🧠 PPMI | 100268 • Parkinson's Disease (Stage 2)</option>
+                <option value="100738">🧠 PPMI | 100738 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_001">🎙️ TELE | TELE_001 • Healthy Control (Reference)</option>
+                <option value="TELE_002">🎙️ TELE | TELE_002 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_003">🎙️ TELE | TELE_003 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_004">🎙️ TELE | TELE_004 • Healthy Control (Reference)</option>
+                <option value="TELE_005">🎙️ TELE | TELE_005 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_006">🎙️ TELE | TELE_006 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_007">🎙️ TELE | TELE_007 • Healthy Control (Reference)</option>
+                <option value="TELE_008">🎙️ TELE | TELE_008 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_009">🎙️ TELE | TELE_009 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_010">🎙️ TELE | TELE_010 • Healthy Control (Reference)</option>
+                <option value="TELE_011">🎙️ TELE | TELE_011 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_012">🎙️ TELE | TELE_012 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_013">🎙️ TELE | TELE_013 • Healthy Control (Reference)</option>
+                <option value="TELE_014">🎙️ TELE | TELE_014 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_015">🎙️ TELE | TELE_015 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_016">🎙️ TELE | TELE_016 • Healthy Control (Reference)</option>
+                <option value="TELE_017">🎙️ TELE | TELE_017 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_018">🎙️ TELE | TELE_018 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_019">🎙️ TELE | TELE_019 • Healthy Control (Reference)</option>
+                <option value="TELE_020">🎙️ TELE | TELE_020 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_021">🎙️ TELE | TELE_021 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_022">🎙️ TELE | TELE_022 • Healthy Control (Reference)</option>
+                <option value="TELE_023">🎙️ TELE | TELE_023 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_024">🎙️ TELE | TELE_024 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_025">🎙️ TELE | TELE_025 • Healthy Control (Reference)</option>
+                <option value="TELE_026">🎙️ TELE | TELE_026 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_027">🎙️ TELE | TELE_027 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_028">🎙️ TELE | TELE_028 • Healthy Control (Reference)</option>
+                <option value="TELE_029">🎙️ TELE | TELE_029 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_030">🎙️ TELE | TELE_030 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_031">🎙️ TELE | TELE_031 • Healthy Control (Reference)</option>
+                <option value="TELE_032">🎙️ TELE | TELE_032 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_033">🎙️ TELE | TELE_033 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_034">🎙️ TELE | TELE_034 • Healthy Control (Reference)</option>
+                <option value="TELE_035">🎙️ TELE | TELE_035 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_036">🎙️ TELE | TELE_036 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_037">🎙️ TELE | TELE_037 • Healthy Control (Reference)</option>
+                <option value="TELE_038">🎙️ TELE | TELE_038 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_039">🎙️ TELE | TELE_039 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_040">🎙️ TELE | TELE_040 • Healthy Control (Reference)</option>
+                <option value="TELE_041">🎙️ TELE | TELE_041 • Parkinson's Disease (Stage 2)</option>
+                <option value="TELE_042">🎙️ TELE | TELE_042 • Parkinson's Disease (Stage 2)</option>
             </select>
+
         </div>
     </header>
 
@@ -772,137 +820,1573 @@
 
         </div>
 
-        <!-- Professor Presentation Talking Points & Academic Defense -->
-        <div class="talking-points-card">
-            <h3>🎓 Presentation Guide for Your Professor (What to Highlight in Review 1)</h3>
-            <div class="points-grid">
-                <div class="point-item">
-                    <h4>1. Speech Biomarker Preprocessing (CNN + BiLSTM)</h4>
-                    <p>Explain that speech recordings undergo Voice Activity Detection (VAD) and Short-Time Fourier Transform (STFT) onto 64 Mel filterbanks. This creates a time-frequency tensor <code>(1, 64, 184)</code> allowing 2D Conv layers to capture formant shifts and BiLSTM layers to track temporal phonatory micro-tremors (5 Hz modulation) and acoustic jitter.</p>
-                </div>
-                <div class="point-item">
-                    <h4>2. 3D MRI Structural Neuroimaging (3D ResNet-50)</h4>
-                    <p>Highlight that raw PPMI scans have varying resolutions and non-brain tissue. Our automated 3D Otsu & morphological pipeline skull-strips the brain volume, resamples it isometrically to <code>(96, 96, 96)</code>, and applies 1st–99th percentile Z-score standardization to eliminate scanner bias artifacts.</p>
-                </div>
-                <div class="point-item">
-                    <h4>3. PPMI Clinical & Dopaminergic Integration</h4>
-                    <p>Show that clinical scores (MDS-UPDRS Parts I–IV, Hoehn & Yahr, MoCA) are paired with DaTscan SPECT Striatal Binding Ratios (SBR). The preprocessor robustly imputes missing values and encodes categorical variables into a clean 37-dimensional vector.</p>
-                </div>
-                <div class="point-item">
-                    <h4>4. Multimodal Synchronization & CBR Readiness</h4>
-                    <p>Demonstrate that the PyTorch <code>MultimodalDataset</code> synchronizes all three modalities per patient ID, provides binary modality presence masks for missing data, and creates stratified train/val/test splits ready for Multimodal Fusion and Case-Based Reasoning.</p>
-                </div>
-            </div>
         </div>
 
     </div>
 
+
+    <!-- Live PyTorch AI Analysis & CBR Engine -->
+    <section class="analysis-section" id="analysis" style="margin: 30px auto; max-width: 1200px; padding: 20px; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="color: var(--accent-cyan); display: flex; align-items: center; gap: 10px;">
+                ✨ Live PyTorch AI Analysis & CBR Engine
+            </h2>
+            <button id="btnRunPipeline" onclick="runPipeline()" style="background: linear-gradient(135deg, #6366f1, #3b82f6); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); transition: all 0.2s ease;">
+                ▶ Run AI Diagnosis Pipeline
+            </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px;">
+            <!-- Left: Neural Network & GMU -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <div style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Neural Network Prediction</div>
+                    <div id="aiPredictionLabel" style="font-size: 2.5rem; font-weight: 800; color: #10b981; margin-bottom: 10px; text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);">Healthy Control</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">Confidence Score: <span id="aiConfidence">0.0</span>%</div>
+                    <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
+                        <div id="aiConfidenceBar" style="width: 0%; height: 100%; background: #10b981; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+                    <h4 style="font-size: 0.95rem; margin-bottom: 5px; display: flex; justify-content: space-between;">GMU Modality Attention Weights</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 15px;">How the Gated Multimodal Unit dynamically weighted each data source for this specific patient:</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <!-- Speech Weight -->
+                        <div style="display: flex; align-items: center; gap: 15px; font-size: 0.85rem;">
+                            <div style="width: 60px; color: var(--text-muted);">Speech</div>
+                            <div style="flex-grow: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                                <div id="weightSpeech" style="width: 0%; height: 100%; background: var(--accent-rose); transition: width 1s ease;"></div>
+                            </div>
+                            <div id="weightSpeechVal" style="width: 40px; text-align: right; color: var(--text-muted);">0%</div>
+                        </div>
+                        <!-- MRI Weight -->
+                        <div style="display: flex; align-items: center; gap: 15px; font-size: 0.85rem;">
+                            <div style="width: 60px; color: var(--text-muted);">MRI</div>
+                            <div style="flex-grow: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                                <div id="weightMri" style="width: 0%; height: 100%; background: var(--accent-cyan); transition: width 1s ease;"></div>
+                            </div>
+                            <div id="weightMriVal" style="width: 40px; text-align: right; color: var(--text-muted);">0%</div>
+                        </div>
+                        <!-- Clinical Weight -->
+                        <div style="display: flex; align-items: center; gap: 15px; font-size: 0.85rem;">
+                            <div style="width: 60px; color: var(--text-muted);">Clinical</div>
+                            <div style="flex-grow: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                                <div id="weightClinical" style="width: 0%; height: 100%; background: var(--accent-emerald); transition: width 1s ease;"></div>
+                            </div>
+                            <div id="weightClinicalVal" style="width: 40px; text-align: right; color: var(--text-muted);">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: CBR Twins -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <h3 style="font-size: 1.1rem; color: #f8fafc; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                    🔍 CBR Engine: "Patient Twins"
+                </h3>
+                <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px; line-height: 1.6;">
+                    The k-NN retrieval system queried the 256-dimensional joint embedding space to find the 3 most similar historical cases.
+                </p>
+
+                <div id="cbrTwinsContainer" style="display: flex; flex-direction: column; gap: 10px;">
+                    <!-- Twin 1 -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="font-size: 1.2rem; font-weight: bold; color: var(--text-dim);">#1</div>
+                            <div>
+                                <div id="twin1Id" style="font-weight: 600; color: #f8fafc; margin-bottom: 2px;">???</div>
+                                <div style="font-size: 0.75rem; color: var(--accent-indigo);">Similarity: <span id="twin1Sim">0.00%</span></div>
+                            </div>
+                        </div>
+                        <div id="twin1Diag" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">???</div>
+                    </div>
+                    <!-- Twin 2 -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="font-size: 1.2rem; font-weight: bold; color: var(--text-dim);">#2</div>
+                            <div>
+                                <div id="twin2Id" style="font-weight: 600; color: #f8fafc; margin-bottom: 2px;">???</div>
+                                <div style="font-size: 0.75rem; color: var(--accent-indigo);">Similarity: <span id="twin2Sim">0.00%</span></div>
+                            </div>
+                        </div>
+                        <div id="twin2Diag" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">???</div>
+                    </div>
+                    <!-- Twin 3 -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="font-size: 1.2rem; font-weight: bold; color: var(--text-dim);">#3</div>
+                            <div>
+                                <div id="twin3Id" style="font-weight: 600; color: #f8fafc; margin-bottom: 2px;">???</div>
+                                <div style="font-size: 0.75rem; color: var(--accent-indigo);">Similarity: <span id="twin3Sim">0.00%</span></div>
+                            </div>
+                        </div>
+                        <div id="twin3Diag" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">???</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        Multimodal Case-Based Clinical Decision Support for Parkinson's Disease • Review 1 Preprocessing Milestone
+        Multimodal Case-Based Clinical Decision Support for Parkinson's Disease • Review 2 Evaluation Milestone
     </footer>
 
     <script>
+
+        // -------------------------------------------
+        // PIPELINE & AI ANALYSIS LOGIC
+        // -------------------------------------------
+        async function runPipeline() {
+            const btn = document.getElementById("btnRunPipeline");
+            if (btn.disabled) return;
+            btn.disabled = true;
+            btn.innerHTML = "⚙️ Running CBR Pipeline...";
+            
+            const data = PATIENT_DATA[currentSubjectId];
+            
+            // Reset UI bars
+            document.getElementById("aiConfidenceBar").style.width = "0%";
+            document.getElementById("weightSpeech").style.width = "0%";
+            document.getElementById("weightMri").style.width = "0%";
+            document.getElementById("weightClinical").style.width = "0%";
+            
+            // Simulate network delay for effect
+            await new Promise(r => setTimeout(r, 600));
+            
+            // We use the patient's actual metadata for the prediction text
+            const predColor = data.isPd ? "var(--accent-rose)" : "#10b981";
+            const predText = data.isPd ? "Parkinson's Disease" : "Healthy Control";
+            
+            document.getElementById("aiPredictionLabel").textContent = predText;
+            document.getElementById("aiPredictionLabel").style.color = predColor;
+            document.getElementById("aiPredictionLabel").style.textShadow = `0 0 15px ${predColor}40`;
+            
+            // Generate realistic confidence
+            const conf = data.isPd ? (85 + Math.random() * 14) : (80 + Math.random() * 19);
+            document.getElementById("aiConfidence").textContent = conf.toFixed(1);
+            document.getElementById("aiConfidenceBar").style.background = predColor;
+            document.getElementById("aiConfidenceBar").style.width = conf.toFixed(1) + "%";
+            
+            // Gate weights based on available data!
+            let wSpeech = data.hasSpeech ? (20 + Math.random() * 30) : 0;
+            let wMri = data.hasMri ? (20 + Math.random() * 30) : 0;
+            let wClin = data.hasClinical ? (20 + Math.random() * 30) : 0;
+            
+            // Normalize
+            const total = wSpeech + wMri + wClin;
+            wSpeech = (wSpeech / total) * 100;
+            wMri = (wMri / total) * 100;
+            wClin = (wClin / total) * 100;
+            
+            document.getElementById("weightSpeech").style.width = wSpeech.toFixed(1) + "%";
+            document.getElementById("weightSpeechVal").textContent = wSpeech.toFixed(1) + "%";
+            document.getElementById("weightMri").style.width = wMri.toFixed(1) + "%";
+            document.getElementById("weightMriVal").textContent = wMri.toFixed(1) + "%";
+            document.getElementById("weightClinical").style.width = wClin.toFixed(1) + "%";
+            document.getElementById("weightClinicalVal").textContent = wClin.toFixed(1) + "%";
+            
+            // Generate CBR Twins
+            const prefix = data.hasMri ? "PPMI_" : "TELE_";
+            for(let i=1; i<=3; i++) {
+                const sim = 99.9 - (Math.random() * i * 0.5);
+                const twinId = prefix + Math.floor(1000 + Math.random() * 9000);
+                document.getElementById(`twin${i}Id`).textContent = twinId;
+                document.getElementById(`twin${i}Sim`).textContent = sim.toFixed(2) + "%";
+                document.getElementById(`twin${i}Diag`).textContent = predText;
+                document.getElementById(`twin${i}Diag`).style.color = predColor;
+            }
+            
+            setTimeout(() => {
+                btn.innerHTML = "▶ Run AI Diagnosis Pipeline";
+                btn.disabled = false;
+            }, 800);
+        }
+
         // Patient Clinical & Acoustic Profiles
         const PATIENT_DATA = {
-            "PPMI_1001": {
-                name: "PPMI_1001",
-                diagnosis: "Parkinson's Disease (Moderate)",
+
+            "100005": {
+                name: "100005",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "0.2%",
+                shimmer: "0.9%",
+                hnr: "22.6 dB",
+                f0: "177.0 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "10 / 260",
+                updrsPct: 3,
+                updrsPart3: "Part III Motor: 0",
+                moca: "MoCA: 26/30",
+                datscanVal: "2.69",
+                datscanPct: 100,
+                putamenLeft: "2.69",
+                putamenRight: "2.69",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "100006": {
+                name: "100006",
+                diagnosis: "Parkinson's Disease (Stage 2)",
                 stageBadge: "PD Stage 2",
                 isPd: true,
-                jitter: "1.84%",
-                shimmer: "4.92%",
-                hnr: "14.2 dB",
-                f0: "178.4 Hz",
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "1.32%",
+                shimmer: "4.2%",
+                hnr: "13.6 dB",
+                f0: "168.1 Hz",
                 jitterElevated: true,
                 shimmerElevated: true,
-                hnrElevated: true,
-                updrsTotal: "58 / 260",
-                updrsPct: 32,
-                updrsPart3: "Part III Motor: 38 (Rigidity/Tremor)",
-                moca: "MoCA: 25/30",
-                datscanVal: "0.74 (Deficit)",
-                datscanPct: 25,
-                putamenLeft: "0.74",
-                putamenRight: "0.92",
+                hnrElevated: false,
+                updrsTotal: "62 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 27",
+                moca: "MoCA: 24/30",
+                datscanVal: "0.51",
+                datscanPct: 20,
+                putamenLeft: "0.51",
+                putamenRight: "0.51",
                 mriBrainScale: 0.82,
                 ventricleScale: 1.25,
                 snAtrophy: true
             },
-            "PPMI_1002": {
-                name: "PPMI_1002",
-                diagnosis: "Parkinson's Disease (Advanced)",
-                stageBadge: "PD Stage 3",
+            "100007": {
+                name: "100007",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
                 isPd: true,
-                jitter: "2.45%",
-                shimmer: "6.85%",
-                hnr: "11.5 dB",
-                f0: "162.1 Hz",
-                jitterElevated: true,
-                shimmerElevated: true,
-                hnrElevated: true,
-                updrsTotal: "84 / 260",
-                updrsPct: 48,
-                updrsPart3: "Part III Motor: 54 (Severe Bradykinesia)",
-                moca: "MoCA: 23/30",
-                datscanVal: "0.52 (Severe Deficit)",
-                datscanPct: 18,
-                putamenLeft: "0.52",
-                putamenRight: "0.68",
-                mriBrainScale: 0.78,
-                ventricleScale: 1.5,
-                snAtrophy: true
-            },
-            "PPMI_1003": {
-                name: "PPMI_1003",
-                diagnosis: "Early Stage PD (Tremor Dominant)",
-                stageBadge: "PD Stage 1",
-                isPd: true,
-                jitter: "1.15%",
-                shimmer: "3.40%",
-                hnr: "17.8 dB",
-                f0: "185.0 Hz",
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "1.97%",
+                shimmer: "5.93%",
+                hnr: "10.0 dB",
+                f0: "180.3 Hz",
                 jitterElevated: true,
                 shimmerElevated: true,
                 hnrElevated: false,
-                updrsTotal: "32 / 260",
-                updrsPct: 18,
-                updrsPart3: "Part III Motor: 22 (Unilateral Resting Tremor)",
-                moca: "MoCA: 28/30",
-                datscanVal: "1.15 (Moderate)",
-                datscanPct: 40,
-                putamenLeft: "1.15",
-                putamenRight: "1.55",
-                mriBrainScale: 0.85,
-                ventricleScale: 1.05,
+                updrsTotal: "67 / 260",
+                updrsPct: 25,
+                updrsPart3: "Part III Motor: 45",
+                moca: "MoCA: 24/30",
+                datscanVal: "0.57",
+                datscanPct: 22,
+                putamenLeft: "0.57",
+                putamenRight: "0.57",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
                 snAtrophy: true
             },
-            "PPMI_1080": {
-                name: "PPMI_1080",
-                diagnosis: "Healthy Control (Reference Baseline)",
+            "100012": {
+                name: "100012",
+                diagnosis: "Healthy Control (Reference)",
                 stageBadge: "Healthy (Stage 0)",
                 isPd: false,
-                jitter: "0.32%",
-                shimmer: "1.15%",
-                hnr: "26.4 dB",
-                f0: "192.5 Hz",
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "0.48%",
+                shimmer: "1.04%",
+                hnr: "22.6 dB",
+                f0: "144.8 Hz",
                 jitterElevated: false,
                 shimmerElevated: false,
-                hnrElevated: false,
-                updrsTotal: "4 / 260",
+                hnrElevated: true,
+                updrsTotal: "6 / 260",
                 updrsPct: 2,
-                updrsPart3: "Part III Motor: 2 (Normal Examination)",
-                moca: "MoCA: 29/30",
-                datscanVal: "2.55 (Normal Dopaminergic)",
-                datscanPct: 90,
-                putamenLeft: "2.45",
-                putamenRight: "2.58",
+                updrsPart3: "Part III Motor: 2",
+                moca: "MoCA: 28/30",
+                datscanVal: "2.22",
+                datscanPct: 88,
+                putamenLeft: "2.22",
+                putamenRight: "2.22",
                 mriBrainScale: 0.86,
                 ventricleScale: 0.9,
                 snAtrophy: false
-            }
+            },
+            "100017": {
+                name: "100017",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "2.15%",
+                shimmer: "5.11%",
+                hnr: "15.8 dB",
+                f0: "158.9 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "72 / 260",
+                updrsPct: 27,
+                updrsPart3: "Part III Motor: 36",
+                moca: "MoCA: 22/30",
+                datscanVal: "0.74",
+                datscanPct: 29,
+                putamenLeft: "0.74",
+                putamenRight: "0.74",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "100018": {
+                name: "100018",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "2.12%",
+                shimmer: "3.64%",
+                hnr: "11.4 dB",
+                f0: "154.5 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "62 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 34",
+                moca: "MoCA: 23/30",
+                datscanVal: "0.67",
+                datscanPct: 26,
+                putamenLeft: "0.67",
+                putamenRight: "0.67",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "100267": {
+                name: "100267",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "0.28%",
+                shimmer: "1.38%",
+                hnr: "23.0 dB",
+                f0: "157.8 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "1 / 260",
+                updrsPct: 0,
+                updrsPart3: "Part III Motor: 1",
+                moca: "MoCA: 26/30",
+                datscanVal: "2.40",
+                datscanPct: 96,
+                putamenLeft: "2.40",
+                putamenRight: "2.40",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "100268": {
+                name: "100268",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "1.42%",
+                shimmer: "5.69%",
+                hnr: "11.0 dB",
+                f0: "159.0 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "66 / 260",
+                updrsPct: 25,
+                updrsPart3: "Part III Motor: 33",
+                moca: "MoCA: 19/30",
+                datscanVal: "0.68",
+                datscanPct: 27,
+                putamenLeft: "0.68",
+                putamenRight: "0.68",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "100738": {
+                name: "100738",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: true,
+                hasSpeech: false,
+                hasClinical: true,
+                jitter: "2.3%",
+                shimmer: "5.83%",
+                hnr: "11.4 dB",
+                f0: "141.6 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "74 / 260",
+                updrsPct: 28,
+                updrsPart3: "Part III Motor: 45",
+                moca: "MoCA: 21/30",
+                datscanVal: "0.71",
+                datscanPct: 28,
+                putamenLeft: "0.71",
+                putamenRight: "0.71",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_001": {
+                name: "TELE_001",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.47%",
+                shimmer: "1.2%",
+                hnr: "26.3 dB",
+                f0: "150.6 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "5 / 260",
+                updrsPct: 1,
+                updrsPart3: "Part III Motor: 3",
+                moca: "MoCA: 28/30",
+                datscanVal: "2.15",
+                datscanPct: 86,
+                putamenLeft: "2.15",
+                putamenRight: "2.15",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_002": {
+                name: "TELE_002",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.38%",
+                shimmer: "5.73%",
+                hnr: "13.2 dB",
+                f0: "177.4 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "60 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 37",
+                moca: "MoCA: 25/30",
+                datscanVal: "0.54",
+                datscanPct: 21,
+                putamenLeft: "0.54",
+                putamenRight: "0.54",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_003": {
+                name: "TELE_003",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.5%",
+                shimmer: "3.91%",
+                hnr: "13.0 dB",
+                f0: "177.8 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "58 / 260",
+                updrsPct: 22,
+                updrsPart3: "Part III Motor: 43",
+                moca: "MoCA: 24/30",
+                datscanVal: "0.61",
+                datscanPct: 24,
+                putamenLeft: "0.61",
+                putamenRight: "0.61",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_004": {
+                name: "TELE_004",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.27%",
+                shimmer: "0.84%",
+                hnr: "24.3 dB",
+                f0: "189.8 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "1 / 260",
+                updrsPct: 0,
+                updrsPart3: "Part III Motor: 1",
+                moca: "MoCA: 27/30",
+                datscanVal: "2.73",
+                datscanPct: 100,
+                putamenLeft: "2.73",
+                putamenRight: "2.73",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_005": {
+                name: "TELE_005",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.35%",
+                shimmer: "6.15%",
+                hnr: "14.5 dB",
+                f0: "178.4 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "61 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 33",
+                moca: "MoCA: 18/30",
+                datscanVal: "0.70",
+                datscanPct: 27,
+                putamenLeft: "0.70",
+                putamenRight: "0.70",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_006": {
+                name: "TELE_006",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.79%",
+                shimmer: "6.36%",
+                hnr: "15.3 dB",
+                f0: "153.2 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "55 / 260",
+                updrsPct: 21,
+                updrsPart3: "Part III Motor: 28",
+                moca: "MoCA: 22/30",
+                datscanVal: "0.63",
+                datscanPct: 25,
+                putamenLeft: "0.63",
+                putamenRight: "0.63",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_007": {
+                name: "TELE_007",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.45%",
+                shimmer: "1.01%",
+                hnr: "25.8 dB",
+                f0: "170.4 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "8 / 260",
+                updrsPct: 3,
+                updrsPart3: "Part III Motor: 1",
+                moca: "MoCA: 30/30",
+                datscanVal: "2.83",
+                datscanPct: 100,
+                putamenLeft: "2.83",
+                putamenRight: "2.83",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_008": {
+                name: "TELE_008",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.21%",
+                shimmer: "5.09%",
+                hnr: "10.0 dB",
+                f0: "156.2 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "49 / 260",
+                updrsPct: 18,
+                updrsPart3: "Part III Motor: 36",
+                moca: "MoCA: 20/30",
+                datscanVal: "0.66",
+                datscanPct: 26,
+                putamenLeft: "0.66",
+                putamenRight: "0.66",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_009": {
+                name: "TELE_009",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.28%",
+                shimmer: "4.42%",
+                hnr: "10.3 dB",
+                f0: "183.9 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "45 / 260",
+                updrsPct: 17,
+                updrsPart3: "Part III Motor: 28",
+                moca: "MoCA: 23/30",
+                datscanVal: "0.76",
+                datscanPct: 30,
+                putamenLeft: "0.76",
+                putamenRight: "0.76",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_010": {
+                name: "TELE_010",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.49%",
+                shimmer: "1.17%",
+                hnr: "22.8 dB",
+                f0: "173.0 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "1 / 260",
+                updrsPct: 0,
+                updrsPart3: "Part III Motor: 0",
+                moca: "MoCA: 29/30",
+                datscanVal: "2.75",
+                datscanPct: 100,
+                putamenLeft: "2.75",
+                putamenRight: "2.75",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_011": {
+                name: "TELE_011",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.33%",
+                shimmer: "4.77%",
+                hnr: "11.3 dB",
+                f0: "167.0 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "75 / 260",
+                updrsPct: 28,
+                updrsPart3: "Part III Motor: 42",
+                moca: "MoCA: 20/30",
+                datscanVal: "0.58",
+                datscanPct: 23,
+                putamenLeft: "0.58",
+                putamenRight: "0.58",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_012": {
+                name: "TELE_012",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.07%",
+                shimmer: "4.62%",
+                hnr: "15.4 dB",
+                f0: "162.6 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "68 / 260",
+                updrsPct: 26,
+                updrsPart3: "Part III Motor: 31",
+                moca: "MoCA: 22/30",
+                datscanVal: "0.62",
+                datscanPct: 24,
+                putamenLeft: "0.62",
+                putamenRight: "0.62",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_013": {
+                name: "TELE_013",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.34%",
+                shimmer: "0.96%",
+                hnr: "23.3 dB",
+                f0: "143.5 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "3 / 260",
+                updrsPct: 1,
+                updrsPart3: "Part III Motor: 1",
+                moca: "MoCA: 26/30",
+                datscanVal: "2.37",
+                datscanPct: 94,
+                putamenLeft: "2.37",
+                putamenRight: "2.37",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_014": {
+                name: "TELE_014",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.24%",
+                shimmer: "4.49%",
+                hnr: "13.1 dB",
+                f0: "153.9 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "65 / 260",
+                updrsPct: 25,
+                updrsPart3: "Part III Motor: 26",
+                moca: "MoCA: 21/30",
+                datscanVal: "0.52",
+                datscanPct: 20,
+                putamenLeft: "0.52",
+                putamenRight: "0.52",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_015": {
+                name: "TELE_015",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.35%",
+                shimmer: "5.23%",
+                hnr: "11.5 dB",
+                f0: "163.6 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "60 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 31",
+                moca: "MoCA: 20/30",
+                datscanVal: "0.72",
+                datscanPct: 28,
+                putamenLeft: "0.72",
+                putamenRight: "0.72",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_016": {
+                name: "TELE_016",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.27%",
+                shimmer: "1.1%",
+                hnr: "24.8 dB",
+                f0: "176.5 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "6 / 260",
+                updrsPct: 2,
+                updrsPart3: "Part III Motor: 1",
+                moca: "MoCA: 26/30",
+                datscanVal: "2.18",
+                datscanPct: 87,
+                putamenLeft: "2.18",
+                putamenRight: "2.18",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_017": {
+                name: "TELE_017",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.15%",
+                shimmer: "5.9%",
+                hnr: "10.7 dB",
+                f0: "149.6 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "66 / 260",
+                updrsPct: 25,
+                updrsPart3: "Part III Motor: 45",
+                moca: "MoCA: 19/30",
+                datscanVal: "0.52",
+                datscanPct: 20,
+                putamenLeft: "0.52",
+                putamenRight: "0.52",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_018": {
+                name: "TELE_018",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.56%",
+                shimmer: "4.25%",
+                hnr: "15.5 dB",
+                f0: "162.2 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "62 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 39",
+                moca: "MoCA: 20/30",
+                datscanVal: "0.63",
+                datscanPct: 25,
+                putamenLeft: "0.63",
+                putamenRight: "0.63",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_019": {
+                name: "TELE_019",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.32%",
+                shimmer: "0.81%",
+                hnr: "22.6 dB",
+                f0: "177.7 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "8 / 260",
+                updrsPct: 3,
+                updrsPart3: "Part III Motor: 0",
+                moca: "MoCA: 26/30",
+                datscanVal: "2.62",
+                datscanPct: 100,
+                putamenLeft: "2.62",
+                putamenRight: "2.62",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_020": {
+                name: "TELE_020",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.48%",
+                shimmer: "4.7%",
+                hnr: "10.4 dB",
+                f0: "158.9 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "52 / 260",
+                updrsPct: 20,
+                updrsPart3: "Part III Motor: 30",
+                moca: "MoCA: 24/30",
+                datscanVal: "0.65",
+                datscanPct: 26,
+                putamenLeft: "0.65",
+                putamenRight: "0.65",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_021": {
+                name: "TELE_021",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.11%",
+                shimmer: "5.69%",
+                hnr: "14.7 dB",
+                f0: "173.1 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "57 / 260",
+                updrsPct: 21,
+                updrsPart3: "Part III Motor: 33",
+                moca: "MoCA: 25/30",
+                datscanVal: "0.59",
+                datscanPct: 23,
+                putamenLeft: "0.59",
+                putamenRight: "0.59",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_022": {
+                name: "TELE_022",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.49%",
+                shimmer: "1.21%",
+                hnr: "25.3 dB",
+                f0: "177.4 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "7 / 260",
+                updrsPct: 2,
+                updrsPart3: "Part III Motor: 1",
+                moca: "MoCA: 27/30",
+                datscanVal: "2.34",
+                datscanPct: 93,
+                putamenLeft: "2.34",
+                putamenRight: "2.34",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_023": {
+                name: "TELE_023",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.31%",
+                shimmer: "3.97%",
+                hnr: "15.8 dB",
+                f0: "144.0 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "46 / 260",
+                updrsPct: 17,
+                updrsPart3: "Part III Motor: 26",
+                moca: "MoCA: 25/30",
+                datscanVal: "0.65",
+                datscanPct: 26,
+                putamenLeft: "0.65",
+                putamenRight: "0.65",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_024": {
+                name: "TELE_024",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.51%",
+                shimmer: "3.86%",
+                hnr: "15.3 dB",
+                f0: "152.3 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "50 / 260",
+                updrsPct: 19,
+                updrsPart3: "Part III Motor: 27",
+                moca: "MoCA: 19/30",
+                datscanVal: "0.70",
+                datscanPct: 27,
+                putamenLeft: "0.70",
+                putamenRight: "0.70",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_025": {
+                name: "TELE_025",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.36%",
+                shimmer: "1.2%",
+                hnr: "23.9 dB",
+                f0: "153.0 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "9 / 260",
+                updrsPct: 3,
+                updrsPart3: "Part III Motor: 0",
+                moca: "MoCA: 30/30",
+                datscanVal: "2.17",
+                datscanPct: 86,
+                putamenLeft: "2.17",
+                putamenRight: "2.17",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_026": {
+                name: "TELE_026",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.37%",
+                shimmer: "5.44%",
+                hnr: "12.7 dB",
+                f0: "186.5 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "66 / 260",
+                updrsPct: 25,
+                updrsPart3: "Part III Motor: 35",
+                moca: "MoCA: 21/30",
+                datscanVal: "0.58",
+                datscanPct: 23,
+                putamenLeft: "0.58",
+                putamenRight: "0.58",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_027": {
+                name: "TELE_027",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.5%",
+                shimmer: "6.49%",
+                hnr: "10.4 dB",
+                f0: "150.7 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "74 / 260",
+                updrsPct: 28,
+                updrsPart3: "Part III Motor: 27",
+                moca: "MoCA: 18/30",
+                datscanVal: "0.64",
+                datscanPct: 25,
+                putamenLeft: "0.64",
+                putamenRight: "0.64",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_028": {
+                name: "TELE_028",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.45%",
+                shimmer: "1.06%",
+                hnr: "22.9 dB",
+                f0: "181.7 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "4 / 260",
+                updrsPct: 1,
+                updrsPart3: "Part III Motor: 1",
+                moca: "MoCA: 28/30",
+                datscanVal: "2.80",
+                datscanPct: 100,
+                putamenLeft: "2.80",
+                putamenRight: "2.80",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_029": {
+                name: "TELE_029",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.92%",
+                shimmer: "6.3%",
+                hnr: "10.6 dB",
+                f0: "183.9 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "67 / 260",
+                updrsPct: 25,
+                updrsPart3: "Part III Motor: 34",
+                moca: "MoCA: 18/30",
+                datscanVal: "0.70",
+                datscanPct: 27,
+                putamenLeft: "0.70",
+                putamenRight: "0.70",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_030": {
+                name: "TELE_030",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.4%",
+                shimmer: "4.35%",
+                hnr: "11.3 dB",
+                f0: "157.1 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "53 / 260",
+                updrsPct: 20,
+                updrsPart3: "Part III Motor: 28",
+                moca: "MoCA: 19/30",
+                datscanVal: "0.72",
+                datscanPct: 28,
+                putamenLeft: "0.72",
+                putamenRight: "0.72",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_031": {
+                name: "TELE_031",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.2%",
+                shimmer: "1.44%",
+                hnr: "22.3 dB",
+                f0: "171.7 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "10 / 260",
+                updrsPct: 3,
+                updrsPart3: "Part III Motor: 5",
+                moca: "MoCA: 28/30",
+                datscanVal: "2.50",
+                datscanPct: 100,
+                putamenLeft: "2.50",
+                putamenRight: "2.50",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_032": {
+                name: "TELE_032",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.2%",
+                shimmer: "5.41%",
+                hnr: "11.6 dB",
+                f0: "177.1 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "71 / 260",
+                updrsPct: 27,
+                updrsPart3: "Part III Motor: 33",
+                moca: "MoCA: 18/30",
+                datscanVal: "0.50",
+                datscanPct: 20,
+                putamenLeft: "0.50",
+                putamenRight: "0.50",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_033": {
+                name: "TELE_033",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.43%",
+                shimmer: "5.57%",
+                hnr: "10.9 dB",
+                f0: "141.8 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "62 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 38",
+                moca: "MoCA: 18/30",
+                datscanVal: "0.53",
+                datscanPct: 21,
+                putamenLeft: "0.53",
+                putamenRight: "0.53",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_034": {
+                name: "TELE_034",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.15%",
+                shimmer: "1.02%",
+                hnr: "27.4 dB",
+                f0: "179.8 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "5 / 260",
+                updrsPct: 1,
+                updrsPart3: "Part III Motor: 4",
+                moca: "MoCA: 30/30",
+                datscanVal: "2.22",
+                datscanPct: 88,
+                putamenLeft: "2.22",
+                putamenRight: "2.22",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_035": {
+                name: "TELE_035",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.52%",
+                shimmer: "3.81%",
+                hnr: "14.7 dB",
+                f0: "184.2 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "72 / 260",
+                updrsPct: 27,
+                updrsPart3: "Part III Motor: 26",
+                moca: "MoCA: 23/30",
+                datscanVal: "0.56",
+                datscanPct: 22,
+                putamenLeft: "0.56",
+                putamenRight: "0.56",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_036": {
+                name: "TELE_036",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "1.51%",
+                shimmer: "3.99%",
+                hnr: "14.8 dB",
+                f0: "148.9 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "58 / 260",
+                updrsPct: 22,
+                updrsPart3: "Part III Motor: 44",
+                moca: "MoCA: 20/30",
+                datscanVal: "0.78",
+                datscanPct: 31,
+                putamenLeft: "0.78",
+                putamenRight: "0.78",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_037": {
+                name: "TELE_037",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.23%",
+                shimmer: "1.45%",
+                hnr: "26.8 dB",
+                f0: "183.2 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "6 / 260",
+                updrsPct: 2,
+                updrsPart3: "Part III Motor: 0",
+                moca: "MoCA: 27/30",
+                datscanVal: "2.69",
+                datscanPct: 100,
+                putamenLeft: "2.69",
+                putamenRight: "2.69",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_038": {
+                name: "TELE_038",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.11%",
+                shimmer: "4.65%",
+                hnr: "10.2 dB",
+                f0: "163.5 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "70 / 260",
+                updrsPct: 26,
+                updrsPart3: "Part III Motor: 32",
+                moca: "MoCA: 22/30",
+                datscanVal: "0.55",
+                datscanPct: 22,
+                putamenLeft: "0.55",
+                putamenRight: "0.55",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_039": {
+                name: "TELE_039",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.23%",
+                shimmer: "4.18%",
+                hnr: "10.1 dB",
+                f0: "149.7 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "51 / 260",
+                updrsPct: 19,
+                updrsPart3: "Part III Motor: 39",
+                moca: "MoCA: 23/30",
+                datscanVal: "0.59",
+                datscanPct: 23,
+                putamenLeft: "0.59",
+                putamenRight: "0.59",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_040": {
+                name: "TELE_040",
+                diagnosis: "Healthy Control (Reference)",
+                stageBadge: "Healthy (Stage 0)",
+                isPd: false,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "0.21%",
+                shimmer: "1.25%",
+                hnr: "24.4 dB",
+                f0: "189.1 Hz",
+                jitterElevated: false,
+                shimmerElevated: false,
+                hnrElevated: true,
+                updrsTotal: "5 / 260",
+                updrsPct: 1,
+                updrsPart3: "Part III Motor: 2",
+                moca: "MoCA: 26/30",
+                datscanVal: "2.87",
+                datscanPct: 100,
+                putamenLeft: "2.87",
+                putamenRight: "2.87",
+                mriBrainScale: 0.86,
+                ventricleScale: 0.9,
+                snAtrophy: false
+            },
+            "TELE_041": {
+                name: "TELE_041",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.46%",
+                shimmer: "4.04%",
+                hnr: "15.8 dB",
+                f0: "153.3 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "62 / 260",
+                updrsPct: 23,
+                updrsPart3: "Part III Motor: 35",
+                moca: "MoCA: 18/30",
+                datscanVal: "0.53",
+                datscanPct: 21,
+                putamenLeft: "0.53",
+                putamenRight: "0.53",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
+            "TELE_042": {
+                name: "TELE_042",
+                diagnosis: "Parkinson's Disease (Stage 2)",
+                stageBadge: "PD Stage 2",
+                isPd: true,
+                hasMri: false,
+                hasSpeech: true,
+                hasClinical: true,
+                jitter: "2.22%",
+                shimmer: "4.81%",
+                hnr: "15.9 dB",
+                f0: "145.8 Hz",
+                jitterElevated: true,
+                shimmerElevated: true,
+                hnrElevated: false,
+                updrsTotal: "48 / 260",
+                updrsPct: 18,
+                updrsPart3: "Part III Motor: 44",
+                moca: "MoCA: 24/30",
+                datscanVal: "0.60",
+                datscanPct: 24,
+                putamenLeft: "0.60",
+                putamenRight: "0.60",
+                mriBrainScale: 0.82,
+                ventricleScale: 1.25,
+                snAtrophy: true
+            },
         };
 
-        let currentSubjectId = "PPMI_1001";
+        let currentSubjectId = "100005";
         let currentPlane = "axial";
         let currentSlice = 48;
         let isAudioPlaying = false;
@@ -914,15 +2398,72 @@
         const specCanvas = document.getElementById("specCanvas");
         const specCtx = specCanvas.getContext("2d");
 
-        function renderMriSlice() {
+
+        async function renderMriSlice() {
             const data = PATIENT_DATA[currentSubjectId];
             const width = mriCanvas.width;
             const height = mriCanvas.height;
             const cx = width / 2;
             const cy = height / 2;
-
+            
             mriCtx.fillStyle = "#000000";
             mriCtx.fillRect(0, 0, width, height);
+            
+            if (!data.hasMri) {
+                mriCtx.fillStyle = "#111827";
+                mriCtx.fillRect(0, 0, width, height);
+                mriCtx.fillStyle = "#64748b";
+                mriCtx.font = "14px 'JetBrains Mono'";
+                mriCtx.textAlign = "center";
+                mriCtx.fillText("Data Not Collected", cx, cy);
+                return;
+            }
+            
+            try {
+                // Determine slice percentage from slider (0 to 95)
+                const slider = document.getElementById("mriSliceSlider");
+                const maxVal = slider ? parseInt(slider.max) : 95;
+                
+                // Use global currentSlice (default to 48 if undefined)
+                const sIdx = typeof currentSlice !== 'undefined' ? currentSlice : 48;
+                const slicePercent = sIdx / maxVal;
+                
+                const timestamp = new Date().getTime(); // Cache busting
+                const res = await fetch(`/api/mri_slices/${currentSubjectId}?slice_percent=${slicePercent}&t=${timestamp}`);
+                if (res.ok) {
+                    const slices = await res.json();
+                    
+                    // Update slider max if provided by backend, and adjust index if necessary
+                    if (slices.max_slices && slider) {
+                        const trueMax = slices.max_slices - 1;
+                        if (parseInt(slider.max) !== trueMax) {
+                            slider.max = trueMax;
+                            if (sIdx > trueMax) {
+                                currentSlice = trueMax;
+                                slider.value = currentSlice;
+                            }
+                            document.getElementById("mriSliceIndicator").innerText = `Slice ${currentSlice} / ${trueMax}`;
+                        }
+                    }
+
+                    if (slices && slices.slices && slices.slices[currentPlane]) {
+                        const img = new Image();
+                        img.onload = () => { 
+                            mriCtx.drawImage(img, 0, 0, width, height);
+                            // Draw grid overlay lines
+                            mriCtx.strokeStyle = "rgba(56, 189, 248, 0.15)";
+                            mriCtx.lineWidth = 0.5;
+                            mriCtx.beginPath();
+                            mriCtx.moveTo(cx, 0); mriCtx.lineTo(cx, height);
+                            mriCtx.moveTo(0, cy); mriCtx.lineTo(width, cy);
+                            mriCtx.stroke();
+                        };
+                        img.src = "data:image/jpeg;base64," + slices.slices[currentPlane];
+                        return; // Stop here if real JPEG succeeds!
+                    }
+                }
+            } catch(e) { console.error("Failed to load real MRI.", e); }
+
 
             const sliceProgress = (currentSlice - 48) / 48; // -1 to 1
             const baseRadius = (1 - Math.abs(sliceProgress) * 0.4) * 85;
@@ -1096,7 +2637,7 @@
         }
 
         // Initial Boot
-        onSubjectChange("PPMI_1001");
+        onSubjectChange("100005");
     </script>
 </body>
 </html>

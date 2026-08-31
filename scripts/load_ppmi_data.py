@@ -40,6 +40,7 @@ PPMI_FILE_PATTERNS = {
         "Participant_Status.csv",
         "Patient_Status.csv",
         "Screening___Demographics.csv",
+        "Subject_Cohort_History.csv",
     ],
     "updrs_part_1": [
         "MDS_UPDRS_Part_I.csv",
@@ -106,16 +107,38 @@ PPMI_FILE_PATTERNS = {
 
 
 def find_ppmi_file(clinical_dir: str, logical_name: str) -> Optional[str]:
-    """Find a PPMI CSV file using fuzzy name matching across release versions."""
+    """Find a PPMI CSV file using fuzzy name matching across release versions.
+    
+    Handles date-suffixed filenames from current PPMI releases
+    (e.g., 'Demographics_24Aug2026.csv' matches pattern 'Demographics.csv').
+    """
+    import re
     patterns = PPMI_FILE_PATTERNS.get(logical_name, [])
     all_csvs = {f.lower(): f for f in os.listdir(clinical_dir) if f.endswith(".csv")}
 
-    # Try exact match first
-    for pattern in patterns:
-        if pattern.lower() in all_csvs:
-            return os.path.join(clinical_dir, all_csvs[pattern.lower()])
+    # Strip date suffixes like '_24Aug2026' from actual filenames for matching
+    date_suffix_re = re.compile(r'_\d{1,2}[a-z]{3}\d{4}\.csv$', re.IGNORECASE)
+    csvs_stripped = {}
+    for csv_lower, csv_actual in all_csvs.items():
+        stripped = date_suffix_re.sub('.csv', csv_lower)
+        csvs_stripped[stripped] = csv_actual
 
-    # Try substring match
+    # Try exact match first (both with and without date suffix)
+    for pattern in patterns:
+        pat_lower = pattern.lower()
+        if pat_lower in all_csvs:
+            return os.path.join(clinical_dir, all_csvs[pat_lower])
+        if pat_lower in csvs_stripped:
+            return os.path.join(clinical_dir, csvs_stripped[pat_lower])
+
+    # Try pattern stem as substring of actual filenames
+    for pattern in patterns:
+        pat_stem = pattern.lower().replace(".csv", "")
+        for csv_lower, csv_actual in all_csvs.items():
+            if pat_stem in csv_lower:
+                return os.path.join(clinical_dir, csv_actual)
+
+    # Try keyword match from logical name
     key_words = logical_name.replace("_", " ").split()
     for csv_lower, csv_actual in all_csvs.items():
         if all(kw in csv_lower for kw in key_words):
@@ -205,15 +228,21 @@ def load_and_merge_ppmi_clinical(clinical_dir: str, visit: str = "BL") -> pd.Dat
         merged["cohort_raw"] = df_status[cohort_col].values
         # Map cohort to PD / HC
         cohort_map = {
+            # Text labels (older PPMI releases)
             "PD": "PD", "Parkinson Disease": "PD", "Parkinson's Disease": "PD",
             "Healthy Control": "HC", "Control": "HC", "HC": "HC",
             "SWEDD": "SWEDD", "Scans Without Evidence of Dopaminergic Deficit": "SWEDD",
             "Prodromal": "Prodromal", "PRODROMAL": "Prodromal",
             "GenCohort PD": "PD", "GenCohort Unaffected": "HC",
             "GenReg PD": "PD", "GenReg Unaffected": "HC",
+            # Numeric APPRDX codes (current PPMI releases)
+            "1": "PD", "2": "HC", "3": "SWEDD",
+            "4": "Prodromal", "5": "HC", "6": "PD",
+            1: "PD", 2: "HC", 3: "SWEDD",
+            4: "Prodromal", 5: "HC", 6: "PD",
         }
         merged["diagnosis"] = merged["cohort_raw"].map(
-            lambda x: cohort_map.get(str(x).strip(), "Other")
+            lambda x: cohort_map.get(x, cohort_map.get(str(x).strip(), "Other"))
         )
     else:
         merged["diagnosis"] = "Unknown"

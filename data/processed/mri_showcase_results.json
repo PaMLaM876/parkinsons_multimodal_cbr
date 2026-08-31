@@ -1,0 +1,414 @@
+{
+  "model_epoch": 1,
+  "test_accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "n_subjects": 18,
+  "aggregate_gate_weights": {
+    "speech_mean": 0.4519,
+    "mri_mean": 0.2748,
+    "clinical_mean": 0.2732,
+    "speech_std": 0.0119,
+    "mri_std": 0.0093,
+    "clinical_std": 0.0137
+  },
+  "subjects": [
+    {
+      "subject_id": "PPMI_1092",
+      "true_label": "HC",
+      "predicted_label": "HC",
+      "correct": true,
+      "confidence": 0.8698111772537231,
+      "pd_probability": 0.1301887482404709,
+      "gate_weights": {
+        "speech": 0.4642,
+        "mri": 0.2815,
+        "clinical": 0.2543
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 2.3458,
+        "embedding_mean": 0.004816,
+        "embedding_std": 0.146534,
+        "brain_coverage_pct": 15.2,
+        "volume_mean_intensity": 0.3295,
+        "volume_std_intensity": 0.3057,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1049",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9615476727485657,
+      "pd_probability": 0.9615476727485657,
+      "gate_weights": {
+        "speech": 0.4322,
+        "mri": 0.2621,
+        "clinical": 0.3057
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2243,
+        "embedding_mean": 0.005512,
+        "embedding_std": 0.201442,
+        "brain_coverage_pct": 17.1,
+        "volume_mean_intensity": 0.3054,
+        "volume_std_intensity": 0.2828,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1048",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9710018038749695,
+      "pd_probability": 0.9710018038749695,
+      "gate_weights": {
+        "speech": 0.4798,
+        "mri": 0.2516,
+        "clinical": 0.2685
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2257,
+        "embedding_mean": 0.005515,
+        "embedding_std": 0.201529,
+        "brain_coverage_pct": 17.1,
+        "volume_mean_intensity": 0.3059,
+        "volume_std_intensity": 0.2829,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1065",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9722535014152527,
+      "pd_probability": 0.9722535014152527,
+      "gate_weights": {
+        "speech": 0.4474,
+        "mri": 0.2786,
+        "clinical": 0.2741
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2322,
+        "embedding_mean": 0.005525,
+        "embedding_std": 0.201937,
+        "brain_coverage_pct": 17.1,
+        "volume_mean_intensity": 0.3056,
+        "volume_std_intensity": 0.2823,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1110",
+      "true_label": "HC",
+      "predicted_label": "HC",
+      "correct": true,
+      "confidence": 0.753529965877533,
+      "pd_probability": 0.24647006392478943,
+      "gate_weights": {
+        "speech": 0.4552,
+        "mri": 0.2782,
+        "clinical": 0.2666
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 2.3475,
+        "embedding_mean": 0.004809,
+        "embedding_std": 0.146641,
+        "brain_coverage_pct": 15.2,
+        "volume_mean_intensity": 0.3294,
+        "volume_std_intensity": 0.3055,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1002",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9703760743141174,
+      "pd_probability": 0.9703760743141174,
+      "gate_weights": {
+        "speech": 0.4366,
+        "mri": 0.2782,
+        "clinical": 0.2852
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2057,
+        "embedding_mean": 0.005492,
+        "embedding_std": 0.200284,
+        "brain_coverage_pct": 17.1,
+        "volume_mean_intensity": 0.3052,
+        "volume_std_intensity": 0.2828,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1114",
+      "true_label": "HC",
+      "predicted_label": "HC",
+      "correct": true,
+      "confidence": 0.8400281071662903,
+      "pd_probability": 0.1599719524383545,
+      "gate_weights": {
+        "speech": 0.4527,
+        "mri": 0.2866,
+        "clinical": 0.2607
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 2.3469,
+        "embedding_mean": 0.004822,
+        "embedding_std": 0.146604,
+        "brain_coverage_pct": 15.2,
+        "volume_mean_intensity": 0.3311,
+        "volume_std_intensity": 0.3066,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1019",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9726400375366211,
+      "pd_probability": 0.9726400375366211,
+      "gate_weights": {
+        "speech": 0.4455,
+        "mri": 0.2701,
+        "clinical": 0.2844
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2075,
+        "embedding_mean": 0.005494,
+        "embedding_std": 0.200393,
+        "brain_coverage_pct": 17.2,
+        "volume_mean_intensity": 0.3061,
+        "volume_std_intensity": 0.2833,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1054",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9708370566368103,
+      "pd_probability": 0.9708370566368103,
+      "gate_weights": {
+        "speech": 0.4497,
+        "mri": 0.2751,
+        "clinical": 0.2752
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2222,
+        "embedding_mean": 0.005512,
+        "embedding_std": 0.201314,
+        "brain_coverage_pct": 17.0,
+        "volume_mean_intensity": 0.3059,
+        "volume_std_intensity": 0.2832,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1090",
+      "true_label": "HC",
+      "predicted_label": "HC",
+      "correct": true,
+      "confidence": 0.8845505118370056,
+      "pd_probability": 0.1154494658112526,
+      "gate_weights": {
+        "speech": 0.4532,
+        "mri": 0.286,
+        "clinical": 0.2608
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 2.3429,
+        "embedding_mean": 0.004807,
+        "embedding_std": 0.146353,
+        "brain_coverage_pct": 15.2,
+        "volume_mean_intensity": 0.3294,
+        "volume_std_intensity": 0.3057,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1071",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9703704714775085,
+      "pd_probability": 0.9703704714775085,
+      "gate_weights": {
+        "speech": 0.4501,
+        "mri": 0.2678,
+        "clinical": 0.2821
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2229,
+        "embedding_mean": 0.005512,
+        "embedding_std": 0.201359,
+        "brain_coverage_pct": 17.0,
+        "volume_mean_intensity": 0.3053,
+        "volume_std_intensity": 0.283,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1044",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9736043214797974,
+      "pd_probability": 0.9736043214797974,
+      "gate_weights": {
+        "speech": 0.4523,
+        "mri": 0.2689,
+        "clinical": 0.2788
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2037,
+        "embedding_mean": 0.005507,
+        "embedding_std": 0.200158,
+        "brain_coverage_pct": 17.1,
+        "volume_mean_intensity": 0.3058,
+        "volume_std_intensity": 0.2833,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1006",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9715960621833801,
+      "pd_probability": 0.9715960621833801,
+      "gate_weights": {
+        "speech": 0.4578,
+        "mri": 0.2737,
+        "clinical": 0.2685
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2195,
+        "embedding_mean": 0.005511,
+        "embedding_std": 0.201146,
+        "brain_coverage_pct": 16.9,
+        "volume_mean_intensity": 0.3065,
+        "volume_std_intensity": 0.284,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1079",
+      "true_label": "HC",
+      "predicted_label": "HC",
+      "correct": true,
+      "confidence": 0.8288372755050659,
+      "pd_probability": 0.17116275429725647,
+      "gate_weights": {
+        "speech": 0.4559,
+        "mri": 0.276,
+        "clinical": 0.2681
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 2.3485,
+        "embedding_mean": 0.004816,
+        "embedding_std": 0.146705,
+        "brain_coverage_pct": 15.3,
+        "volume_mean_intensity": 0.3293,
+        "volume_std_intensity": 0.305,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1100",
+      "true_label": "HC",
+      "predicted_label": "HC",
+      "correct": true,
+      "confidence": 0.8361393213272095,
+      "pd_probability": 0.16386063396930695,
+      "gate_weights": {
+        "speech": 0.4659,
+        "mri": 0.2837,
+        "clinical": 0.2504
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 2.3498,
+        "embedding_mean": 0.004809,
+        "embedding_std": 0.146785,
+        "brain_coverage_pct": 15.1,
+        "volume_mean_intensity": 0.3304,
+        "volume_std_intensity": 0.306,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1064",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9695250391960144,
+      "pd_probability": 0.9695250391960144,
+      "gate_weights": {
+        "speech": 0.4276,
+        "mri": 0.2857,
+        "clinical": 0.2867
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.2148,
+        "embedding_mean": 0.005508,
+        "embedding_std": 0.200846,
+        "brain_coverage_pct": 17.0,
+        "volume_mean_intensity": 0.3057,
+        "volume_std_intensity": 0.2828,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1086",
+      "true_label": "HC",
+      "predicted_label": "HC",
+      "correct": true,
+      "confidence": 0.8787589073181152,
+      "pd_probability": 0.12124113738536835,
+      "gate_weights": {
+        "speech": 0.4598,
+        "mri": 0.2816,
+        "clinical": 0.2586
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 2.3476,
+        "embedding_mean": 0.004812,
+        "embedding_std": 0.146648,
+        "brain_coverage_pct": 15.2,
+        "volume_mean_intensity": 0.3298,
+        "volume_std_intensity": 0.3057,
+        "has_jpeg_slices": true
+      }
+    },
+    {
+      "subject_id": "PPMI_1010",
+      "true_label": "PD",
+      "predicted_label": "PD",
+      "correct": true,
+      "confidence": 0.9709042906761169,
+      "pd_probability": 0.9709042906761169,
+      "gate_weights": {
+        "speech": 0.4488,
+        "mri": 0.262,
+        "clinical": 0.2892
+      },
+      "mri_analysis": {
+        "embedding_l2_norm": 3.1944,
+        "embedding_mean": 0.00549,
+        "embedding_std": 0.199572,
+        "brain_coverage_pct": 17.1,
+        "volume_mean_intensity": 0.3054,
+        "volume_std_intensity": 0.283,
+        "has_jpeg_slices": true
+      }
+    }
+  ]
+}
