@@ -247,6 +247,88 @@ def get_mri_showcase():
 
     return jsonify({"model_metrics": metrics, "patients": patients})
 
+
+@app.route("/api/reports/<filename>", methods=["GET"])
+def get_report_image(filename):
+    """Serve report images (training curves, ROC, confusion matrix, etc.)."""
+    reports_dir = os.path.join(PROJECT_ROOT, "reports")
+    allowed_extensions = {".png", ".jpg", ".jpeg", ".json"}
+    ext = os.path.splitext(filename)[1].lower()
+    if ext not in allowed_extensions:
+        return jsonify({"error": "Invalid file type"}), 400
+    filepath = os.path.join(reports_dir, filename)
+    if not os.path.exists(filepath):
+        return jsonify({"error": f"Report file {filename} not found"}), 404
+    return send_from_directory(reports_dir, filename)
+
+
+@app.route("/api/model_info", methods=["GET"])
+def get_model_info():
+    """Return model architecture details, parameter counts, and training info."""
+    info = {
+        "model_loaded": model is not None,
+        "cbr_loaded": cbr is not None,
+        "test_data_loaded": test_data is not None,
+    }
+
+    if model is not None:
+        info["architecture"] = {
+            "name": "MultimodalPDModel",
+            "encoders": [
+                {"name": "Speech Encoder", "type": "CNN + BiLSTM + Temporal Attention", "output_dim": 256,
+                 "details": "3-layer 2D CNN (32→64→128) + 2-layer BiLSTM (hidden=128) + Bahdanau Attention"},
+                {"name": "MRI Encoder", "type": "3D CNN (Light)", "output_dim": 256,
+                 "details": "5-layer 3D CNN (32→64→128→256→512) + Global AvgPool"},
+                {"name": "Clinical Encoder", "type": "Deep MLP", "output_dim": 64,
+                 "details": "3-layer MLP (37→128→128→64) with BatchNorm + GELU"},
+            ],
+            "fusion": {"name": "Gated Multimodal Unit (GMU)", "output_dim": 256,
+                       "details": "Temperature-scaled softmax gating (T=1.5) with gate floor (0.05) and entropy regularization"},
+            "classifier": {"type": "2-layer MLP", "details": "FC(256→128) → ReLU → Dropout → FC(128→2) → Softmax"},
+            "parameters": model.count_parameters(),
+        }
+
+    if cbr is not None:
+        info["cbr"] = {
+            "n_cases": cbr.n_cases,
+            "embedding_dim": cbr.embedding_dim,
+            "k": cbr.k,
+            "similarity_metric": cbr.similarity,
+        }
+
+    if test_data is not None:
+        info["test_data"] = {
+            "n_subjects": len(test_data["subject_id"]),
+            "n_pd": int((test_data["label"] == 1).sum()),
+            "n_hc": int((test_data["label"] == 0).sum()),
+        }
+
+    # Load training results if available
+    ckpt_path = os.path.join(PROJECT_ROOT, "checkpoints", "best_model.pt")
+    if os.path.exists(ckpt_path):
+        try:
+            ckpt = torch.load(ckpt_path, map_location="cpu", weights_only=False)
+            info["training"] = {
+                "best_epoch": ckpt.get("epoch", "N/A"),
+                "val_auc": ckpt.get("val_auc", "N/A"),
+                "val_f1": ckpt.get("val_f1", "N/A"),
+                "val_composite": ckpt.get("val_composite", "N/A"),
+            }
+        except Exception:
+            pass
+
+    # Load evaluation results if available
+    eval_path = os.path.join(PROJECT_ROOT, "reports", "evaluation_results.json")
+    if os.path.exists(eval_path):
+        try:
+            with open(eval_path, "r") as f:
+                info["evaluation"] = json.load(f)
+        except Exception:
+            pass
+
+    return jsonify(info)
+
+
 @app.route("/api/mri_slices/<subject_id>", methods=["GET"])
 def get_mri_slices(subject_id):
     mri_numpy_dir = os.path.join(DATA_DIR, 'real', 'ppmi', 'mri_numpy')
