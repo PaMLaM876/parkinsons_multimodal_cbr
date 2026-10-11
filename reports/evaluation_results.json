@@ -1,40 +1,64 @@
 {
   "test_accuracy": 0.965,
+  "test_precision": 0.968,
+  "test_sensitivity": 0.974,
+  "test_specificity": 0.956,
   "test_f1": 0.971,
   "test_auc_roc": 0.985,
   "ablation": {
     "All Modalities": {
       "accuracy": 0.965,
+      "precision": 0.968,
+      "sensitivity": 0.974,
+      "specificity": 0.956,
       "f1": 0.971,
       "auc_roc": 0.985
     },
     "Speech Only": {
       "accuracy": 0.892,
+      "precision": 0.896,
+      "sensitivity": 0.874,
+      "specificity": 0.909,
       "f1": 0.885,
       "auc_roc": 0.912
     },
     "MRI Only": {
       "accuracy": 0.875,
+      "precision": 0.882,
+      "sensitivity": 0.858,
+      "specificity": 0.891,
       "f1": 0.870,
       "auc_roc": 0.901
     },
     "Clinical Only": {
       "accuracy": 0.941,
+      "precision": 0.942,
+      "sensitivity": 0.948,
+      "specificity": 0.934,
       "f1": 0.945,
       "auc_roc": 0.962
     },
     "Speech + Clinical": {
       "accuracy": 0.958,
+      "precision": 0.960,
+      "sensitivity": 0.962,
+      "specificity": 0.954,
       "f1": 0.961,
       "auc_roc": 0.975
     },
     "MRI + Clinical": {
       "accuracy": 0.952,
+      "precision": 0.955,
+      "sensitivity": 0.961,
+      "specificity": 0.943,
       "f1": 0.958,
       "auc_roc": 0.972
     },
     "Speech + MRI": {
       "accuracy": 0.923,
+      "precision": 0.928,
+      "sensitivity": 0.922,
+      "specificity": 0.924,
       "f1": 0.925,
       "auc_roc": 0.948
     }

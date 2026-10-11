@@ -28,7 +28,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.metrics import (
     roc_curve, auc, confusion_matrix, classification_report,
-    accuracy_score, f1_score, roc_auc_score,
+    accuracy_score, f1_score, roc_auc_score, precision_score, recall_score,
 )
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -186,13 +186,25 @@ def modality_ablation(model, test_data, device):
     for name, mask in configs.items():
         preds_data = get_predictions(model, test_data, device, modality_mask_override=mask)
         acc = accuracy_score(preds_data["labels"], preds_data["preds"])
+        prec = precision_score(preds_data["labels"], preds_data["preds"], average="binary", zero_division=0)
+        sens = recall_score(preds_data["labels"], preds_data["preds"], average="binary", zero_division=0)
+        cm = confusion_matrix(preds_data["labels"], preds_data["preds"], labels=[0, 1])
+        tn, fp, fn, tp = cm.ravel()
+        spec = tn / (tn + fp) if (tn + fp) > 0 else 0.0
         f1 = f1_score(preds_data["labels"], preds_data["preds"], average="binary", zero_division=0)
         try:
             auc_val = roc_auc_score(preds_data["labels"], preds_data["probs"])
         except ValueError:
             auc_val = 0.5
-        results[name] = {"accuracy": round(acc, 4), "f1": round(f1, 4), "auc_roc": round(auc_val, 4)}
-        print(f"    {name:25s} → Acc={acc:.3f} | F1={f1:.3f} | AUC={auc_val:.3f}")
+        results[name] = {
+            "accuracy": round(acc, 4),
+            "precision": round(prec, 4),
+            "sensitivity": round(sens, 4),
+            "specificity": round(spec, 4),
+            "f1": round(f1, 4),
+            "auc_roc": round(auc_val, 4),
+        }
+        print(f"    {name:25s} → Acc={acc:.3f} | Prec={prec:.3f} | Sens={sens:.3f} | Spec={spec:.3f} | F1={f1:.3f} | AUC={auc_val:.3f}")
 
     return results
 
@@ -273,10 +285,18 @@ def main():
     results = get_predictions(model, test_data, device)
 
     acc = accuracy_score(results["labels"], results["preds"])
+    prec = precision_score(results["labels"], results["preds"], average="binary", zero_division=0)
+    sens = recall_score(results["labels"], results["preds"], average="binary", zero_division=0)
+    cm_test = confusion_matrix(results["labels"], results["preds"], labels=[0, 1])
+    tn_t, fp_t, fn_t, tp_t = cm_test.ravel()
+    spec = tn_t / (tn_t + fp_t) if (tn_t + fp_t) > 0 else 0.0
     f1 = f1_score(results["labels"], results["preds"], average="binary", zero_division=0)
     auc_val = roc_auc_score(results["labels"], results["probs"])
 
     print(f"\n    Test Accuracy:    {acc:.4f}")
+    print(f"    Test Precision:   {prec:.4f}")
+    print(f"    Test Sensitivity: {sens:.4f}")
+    print(f"    Test Specificity: {spec:.4f}")
     print(f"    Test F1:          {f1:.4f}")
     print(f"    Test AUC-ROC:     {auc_val:.4f}")
     print(f"\n    Classification Report:")
@@ -305,6 +325,9 @@ def main():
     # Save all results
     eval_results = {
         "test_accuracy": acc,
+        "test_precision": prec,
+        "test_sensitivity": sens,
+        "test_specificity": spec,
         "test_f1": f1,
         "test_auc_roc": auc_val,
         "ablation": ablation,
